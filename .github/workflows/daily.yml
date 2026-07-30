@@ -1,0 +1,57 @@
+name: Daily Academic Radar
+
+on:
+  schedule:
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install PyYAML requests python-dateutil feedparser openai tzdata
+      - name: Replace API key in config
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: sed -i "s|api_key:.*|api_key: \"$DEEPSEEK_API_KEY\"|g" radar/academic_radar_config.yaml
+      - name: Run radar main
+        env:
+          RADAR_DIR: ${{ github.workspace }}/radar
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          cd radar
+          mkdir -p data/radar/errors state
+          python radar_main.py
+      - name: Fetch journals
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/journal_fetcher.py --output-dir data/
+      - name: Fetch patents
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/patent_fetcher.py
+      - name: Generate final data
+        env:
+          RADAR_DIR: ${{ github.workspace }}/radar
+          WEBAPP_DIR: ${{ github.workspace }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/generate_data.py
+      - name: Commit and push data
+        run: |
+          git config user.name "Academic Radar Bot"
+          git config user.email "bot@academic-radar.local"
+          git add data/
+          git diff --staged --quiet || git commit -m "Daily update $(TZ='Asia/Shanghai' date +%Y-%m-%d)"
+          git push
