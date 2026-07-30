@@ -443,28 +443,69 @@ const App = {
       items.forEach((f, idx) => {
         const isPatent = f.type === 'patent';
         const catClass = f.category || '其他';
+        const title_cn = f.title_cn || f.title_en || '';
+        const title_en = (!isPatent && f.title_en && f.title_cn !== f.title_en) ? f.title_en : '';
+        const summary = f.summary_cn || f.abstract_cn || '';
+        const authors = f.authors || [];
+        const doi = f.doi || '';
+        const pmid = f.pmid || '';
+        const patent_number = f.patent_number || '';
+        const journal = f.journal || '';
+        const abstract_en = f.abstract_en || '';
+        const abstract_cn = f.abstract_cn || '';
+
+        // Build detail HTML
+        let detailHTML = '';
+        if (abstract_en) detailHTML += `<div class="detail-section"><div class="detail-section-title">英文摘要</div><div class="abstract-text">${abstract_en}</div></div>`;
+        if (abstract_cn && abstract_cn !== abstract_en) detailHTML += `<div class="detail-section"><div class="detail-section-title">${abstract_en ? '中文翻译' : '中文摘要'}</div><div class="abstract-text">${abstract_cn}</div></div>`;
+        if (authors.length) detailHTML += `<div class="detail-row"><span class="detail-label">作者</span><span class="detail-value">${authors.join(', ')}</span></div>`;
+        if (doi) detailHTML += `<div class="detail-row"><span class="detail-label">DOI</span><span class="detail-value"><a href="https://doi.org/${doi}" target="_blank">${doi} →</a></span></div>`;
+        if (pmid) detailHTML += `<div class="detail-row"><span class="detail-label">PMID</span><span class="detail-value"><a href="https://pubmed.ncbi.nlm.nih.gov/${pmid}/" target="_blank">${pmid} →</a></span></div>`;
+        if (patent_number) detailHTML += `<div class="detail-row"><span class="detail-label">专利号</span><span class="detail-value">${patent_number}</span></div>`;
+
         html += `
-          <div class="card" data-favid="${f.id}" style="animation-delay:${idx*0.05}s">
+          <div class="card" data-favid="${f.id}" data-expanded="false" style="animation-delay:${idx*0.05}s">
             <div class="card-header">
               <div class="card-tags">
                 ${isPatent ? '<span class="badge badge-patent">专利</span>' : ''}
                 <span class="badge badge-cat ${catClass}">${f.category || '综合'}</span>
+                ${!isPatent && f.source ? `<span class="badge badge-source">${f.source}</span>` : ''}
               </div>
               <button class="btn-icon btn-fav faved btn-remove-fav" data-favid="${f.id}">
                 ${Icons.heart}
               </button>
             </div>
-            <div class="card-title">${f.title_cn || f.title_en || ''}</div>
-            <div class="card-summary">${f.summary_cn || f.abstract_cn || ''}</div>
-            <div class="card-meta" style="margin-top:8px;font-size:13px">
-              <span>收藏于 ${new Date(f.saved_at).toLocaleDateString('zh-CN')}</span>
-              ${f.doi ? `<a href="https://doi.org/${f.doi}" target="_blank" style="color:var(--blue);margin-left:auto">查看原文 →</a>` : ''}
+            <div class="card-title">${title_cn}</div>
+            ${title_en ? `<div class="card-title-en">${title_en}</div>` : ''}
+            <div class="card-summary">${summary}</div>
+            <div class="card-footer">
+              <div class="card-meta">
+                ${isPatent
+                  ? `<span class="meta-item">${Icons.patent}<span>${patent_number}</span></span>`
+                  : `<span class="meta-item">${Icons.journal}<span>${journal}</span></span>
+                     <span class="meta-item">${Icons.user}<span>${(authors)[0]||'佚名'}</span></span>`
+                }
+                ${!isPatent && doi ? `<span class="meta-item"><a href="https://doi.org/${doi}" target="_blank" style="color:var(--blue);font-size:13px">DOI →</a></span>` : ''}
+                ${!isPatent && pmid ? `<span class="meta-item"><a href="https://pubmed.ncbi.nlm.nih.gov/${pmid}/" target="_blank" style="color:var(--blue);font-size:13px">PubMed →</a></span>` : ''}
+              </div>
             </div>
+            <div class="card-detail">${detailHTML}</div>
           </div>`;
       });
       html += '</div>';
     }
     container.innerHTML = html;
+
+    // Bind click-to-expand for favorite cards
+    document.querySelectorAll('#favContent .card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-fav') || e.target.closest('a')) return;
+        const expanded = card.dataset.expanded === 'true';
+        card.dataset.expanded = expanded ? 'false' : 'true';
+        if (!expanded) card.classList.add('expanded');
+        else card.classList.remove('expanded');
+      });
+    });
 
     document.querySelectorAll('.btn-remove-fav').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -582,6 +623,35 @@ const App = {
 
     container.innerHTML = html;
 
+    // Bind journal article data for favorite saving
+    this._journalArticleData = {};
+    document.querySelectorAll('.journal-pick-card').forEach((card, ci) => {
+      const artId = card.dataset.id;
+      if (artId) {
+        // Reconstruct article data from DOM for save
+        const titleEl = card.querySelector('.card-title');
+        const titleEnEl = card.querySelector('.card-title-en');
+        const catBadge = card.querySelector('.badge-cat');
+        const detailSections = card.querySelectorAll('.detail-section .abstract-text');
+        const doiLink = card.querySelector('.detail-row a[href*="doi.org"]');
+        const pmidLink = card.querySelector('.detail-row a[href*="pubmed"]');
+        const authorEl = card.querySelector('.detail-row .detail-value');
+        const metaJournal = card.querySelector('.meta-item');
+        this._journalArticleData[artId] = {
+          title_cn: titleEl ? titleEl.textContent : '',
+          title_en: titleEnEl ? titleEnEl.textContent : '',
+          category: catBadge ? catBadge.textContent : '综合',
+          abstract_en: detailSections[0] ? detailSections[0].textContent : '',
+          abstract_cn: detailSections.length > 1 ? detailSections[1].textContent : '',
+          doi: doiLink ? doiLink.getAttribute('href').replace('https://doi.org/', '') : '',
+          pmid: pmidLink ? pmidLink.getAttribute('href').replace('https://pubmed.ncbi.nlm.nih.gov/', '').replace('/', '') : '',
+          authors: authorEl ? authorEl.textContent.split(', ').filter(Boolean) : [],
+          journal: metaJournal ? metaJournal.textContent : '',
+          source: 'PubMed'
+        };
+      }
+    });
+
     // Bind expand on journal article cards
     document.querySelectorAll('.journal-pick-card').forEach(card => {
       card.addEventListener('click', (e) => {
@@ -603,21 +673,29 @@ const App = {
           btn.classList.remove('faved');
           this.showToast('已取消收藏');
         } else {
-          // Find the article data
-          const card = btn.closest('.card');
-          const titleEl = card ? card.querySelector('.card-title') : null;
-          const titleEnEl = card ? card.querySelector('.card-title-en') : null;
-          const abstractEn = card ? card.querySelector('.detail-section .abstract-text') : null;
-          const abstractCn = abstractEn && card.querySelectorAll('.detail-section .abstract-text').length > 1
-            ? card.querySelectorAll('.detail-section .abstract-text')[1] : null;
-          const catBadge = card ? card.querySelector('.badge-cat') : null;
-
-          this.favorites[id] = {
-            id, type: 'paper', category: catBadge ? catBadge.textContent : '综合',
-            title_cn: titleEl ? titleEl.textContent : '',
-            title_en: titleEnEl ? titleEnEl.textContent : '',
-            saved_at: new Date().toISOString()
-          };
+          const artData = this._journalArticleData ? this._journalArticleData[id] : null;
+          if (artData) {
+            this.favorites[id] = {
+              id, type: 'paper', category: artData.category,
+              title_cn: artData.title_cn, title_en: artData.title_en,
+              abstract_en: artData.abstract_en, abstract_cn: artData.abstract_cn,
+              authors: artData.authors, doi: artData.doi, pmid: artData.pmid,
+              journal: artData.journal, source: artData.source,
+              saved_at: new Date().toISOString()
+            };
+          } else {
+            // Fallback: parse from DOM
+            const card = btn.closest('.card');
+            const titleEl = card ? card.querySelector('.card-title') : null;
+            const titleEnEl = card ? card.querySelector('.card-title-en') : null;
+            const catBadge = card ? card.querySelector('.badge-cat') : null;
+            this.favorites[id] = {
+              id, type: 'paper', category: catBadge ? catBadge.textContent : '综合',
+              title_cn: titleEl ? titleEl.textContent : '',
+              title_en: titleEnEl ? titleEnEl.textContent : '',
+              saved_at: new Date().toISOString()
+            };
+          }
           btn.classList.add('faved');
           this.showToast('已收藏 ✓');
         }
