@@ -9,7 +9,7 @@ All English content translated to Chinese via DeepSeek."""
 import json, os, sys, requests, time, re, random, hashlib
 from datetime import datetime
 
-DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "REPLACE_WITH_SECRET")
+DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 DEEPSEEK_URL = "https://api.deepseek.com/v1/chat/completions"
 ESEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
@@ -167,27 +167,35 @@ def translate(text, is_title=False):
 
 # ─── PubMed: Full Issue Fetch ───
 def pubmed_search(query, max_results=500):
-    """POST esearch to PubMed."""
-    try:
-        r = requests.post(ESEARCH, data={"db": "pubmed", "term": query, "retmax": max_results,
-                                          "retmode": "json", "sort": "pubdate"}, timeout=30)
-        r.raise_for_status()
-        return r.json().get("esearchresult", {}).get("idlist", [])
-    except Exception as e:
-        print(f"  PubMed search error: {e}", file=sys.stderr)
-        return []
+    """POST esearch to PubMed with retry on failure."""
+    for attempt in range(3):
+        try:
+            r = requests.post(ESEARCH, data={"db": "pubmed", "term": query, "retmax": max_results,
+                                              "retmode": "json", "sort": "pubdate"}, timeout=30)
+            r.raise_for_status()
+            return r.json().get("esearchresult", {}).get("idlist", [])
+        except Exception as e:
+            print(f"  PubMed search error (attempt {attempt+1}/3): {e}", file=sys.stderr)
+            if attempt < 2:
+                time.sleep(3 * (attempt + 1))
+    return []
 
 
 def pubmed_fetch(pmids):
-    """Fetch article details from PubMed by PMIDs, returning parsed list."""
+    """Fetch article details from PubMed by PMIDs with retry."""
     if not pmids:
         return []
-    try:
-        r = requests.post(EFETCH, data={"db": "pubmed", "id": ",".join(pmids), "retmode": "xml"}, timeout=60)
-        r.raise_for_status()
-    except Exception as e:
-        print(f"  PubMed fetch error: {e}", file=sys.stderr)
-        return []
+    for attempt in range(3):
+        try:
+            r = requests.post(EFETCH, data={"db": "pubmed", "id": ",".join(pmids), "retmode": "xml"}, timeout=60)
+            r.raise_for_status()
+            break
+        except Exception as e:
+            print(f"  PubMed fetch error (attempt {attempt+1}/3): {e}", file=sys.stderr)
+            if attempt < 2:
+                time.sleep(3 * (attempt + 1))
+            else:
+                return []
 
     xml = r.text
     articles = []
@@ -243,8 +251,54 @@ def pubmed_fetch(pmids):
     return articles
 
 
-def fetch_english_journal(j):
-    """Fetch ALL articles from the LATEST issue of an English journal."""
+def quick_topic_match(article):
+    """Quick topic check using only English title+abstract (no translation needed)."""
+    text_en = f"{article.get('title_en', '') or ''} {article.get('abstract_en', '') or ''}".lower()
+    for cat, kw in TOPIC_KEYWORDS.items():
+        tier1 = 0
+        tier2 = 0
+        for w in kw["tier1"]:
+            if w.lower() in text_en:
+                tier1 += 1
+        for w in kw["tier2"]:
+            if w.lower() in text_en:
+                tier2 += 1
+        if tier1 >= 1 or (tier1 + tier2) >= 2:
+            return True
+    return False
+
+
+def fetch_articles_for_issue(j, vol, iss):
+    """Fetch and quality-filter articles for a specific volume/issue. Returns list of articles."""
+    issue_query = f'{j["pubmed_query"]} AND {vol}[Volume] AND {iss}[Issue]'
+    issue_pmids = pubmed_search(issue_query, max_results=500)
+    print(f"  Vol {vol}, Issue {iss}: {len(issue_pmids)} PMIDs")
+
+    if len(issue_pmids) == 0:
+        return []
+
+    time.sleep(1.0)
+    articles = pubmed_fetch(issue_pmids)
+    if len(articles) == 0 and len(issue_pmids) > 0:
+        print(f"  Retrying fetch after delay...")
+        time.sleep(3.0)
+        articles = pubmed_fetch(issue_pmids)
+
+    before_qc = len(articles)
+    articles = [a for a in articles if is_quality_article(a)]
+    skipped = before_qc - len(articles)
+    if skipped:
+        print(f"  QC: removed {skipped} low-quality articles")
+
+    # Count topic matches
+    matched = sum(1 for a in articles if quick_topic_match(a))
+    print(f"  {len(articles)} QC-passed, {matched} topic-matched")
+    return articles
+
+
+def fetch_english_journal(j, max_retry_issues=3):
+    """Fetch articles from an English journal. If latest issue has 0 topic-matched articles,
+    try earlier issues (up to max_retry_issues)."""
     print(f"\n{'='*50}")
     print(f"Journal: {j['name_cn']}")
 
@@ -255,57 +309,61 @@ def fetch_english_journal(j):
     if not pmids:
         return {**j, "articles": [], "note": "No results"}
 
-    # Step 2: Fetch first 20 to extract volume/issue
+    # Step 2: Fetch sample to extract volume/issue
     sample_articles = pubmed_fetch(pmids[:20])
     print(f"  Parsed {len(sample_articles)} sample articles")
-    time.sleep(1.0)  # Avoid PubMed rate limiting
+    time.sleep(1.0)
 
     # Find the latest volume+issue
     latest_vol = ""
-    latest_iss = ""
+    latest_iss = 0
     for art in sample_articles:
         if art["volume"] and art["issue"]:
-            latest_vol = art["volume"]
-            latest_iss = art["issue"]
-            break
+            try:
+                latest_vol = art["volume"]
+                latest_iss = int(art["issue"])
+                break
+            except ValueError:
+                continue
 
     if not latest_vol:
-        print("  Warning: Could not determine latest volume/issue, using recent 20")
-        articles = sample_articles[:20]
+        print("  Warning: Could not determine latest volume/issue")
+        articles = [a for a in sample_articles[:20] if is_quality_article(a)]
+        latest_iss_str = ""
     else:
         print(f"  Latest issue: Vol {latest_vol}, Issue {latest_iss}")
+        articles = []
+        final_vol = latest_vol
+        final_iss = latest_iss
 
-        # Step 3: Search specifically for this volume+issue
-        issue_query = f'{j["pubmed_query"]} AND {latest_vol}[Volume] AND {latest_iss}[Issue]'
-        issue_pmids = pubmed_search(issue_query, max_results=500)
-        print(f"  Issue-specific search: {len(issue_pmids)} PMIDs")
+        for offset in range(max_retry_issues):
+            try_iss = latest_iss - offset
+            if try_iss < 1:
+                continue
+            print(f"  Trying #{offset+1}: Vol {latest_vol}, Issue {try_iss}")
+            articles = fetch_articles_for_issue(j, latest_vol, str(try_iss))
+            topic_hits = sum(1 for a in articles if quick_topic_match(a))
+            if topic_hits > 0 or offset == max_retry_issues - 1:
+                final_iss = try_iss
+                break
+            print(f"  → 0 topic-matched, looking at earlier issue...")
 
-        if len(issue_pmids) == 0:
-            # Fallback: just use the volume (some journals don't index issue well)
+        if len(articles) == 0:
+            # Ultimate fallback: use volume-only search
             vol_query = f'{j["pubmed_query"]} AND {latest_vol}[Volume]'
-            issue_pmids = pubmed_search(vol_query, max_results=500)
-            print(f"  Volume-only fallback: {len(issue_pmids)} PMIDs")
+            fallback_pmids = pubmed_search(vol_query, max_results=100)
+            if fallback_pmids:
+                print(f"  Fallback: volume-only search → {len(fallback_pmids)} PMIDs")
+                time.sleep(1.0)
+                articles = pubmed_fetch(fallback_pmids[:50])
+                articles = [a for a in articles if is_quality_article(a)]
+            if len(articles) == 0:
+                articles = [a for a in sample_articles[:20] if is_quality_article(a)]
 
-        if len(issue_pmids) == 0:
-            # Ultimate fallback: use the most recent articles
-            issue_pmids = pmids[:30]
-            print(f"  Using recent 30 articles as fallback")
+        latest_vol = final_vol
+        latest_iss_str = str(final_iss)
 
-        time.sleep(1.0)  # Avoid PubMed rate limiting before issue-specific fetch
-        articles = pubmed_fetch(issue_pmids)
-        if len(articles) == 0 and len(issue_pmids) > 0:
-            # Retry once after delay (PubMed rate limiting)
-            print(f"  Retrying fetch after delay...")
-            time.sleep(3.0)
-            articles = pubmed_fetch(issue_pmids)
-        print(f"  Parsed {len(articles)} articles from this issue")
-
-    # Quality filter: remove corrections, editorials, no-abstract items
-    before_qc = len(articles)
-    articles = [a for a in articles if is_quality_article(a)]
-    skipped = before_qc - len(articles)
-    if skipped:
-        print(f"  Quality filter: removed {skipped} low-quality articles (corrections/editorials/no-abstract)")
+    print(f"  → Final: {len(articles)} articles for translation")
 
     # Translate
     translated = []
@@ -318,7 +376,7 @@ def fetch_english_journal(j):
         translated.append({**art, "title_cn": title_cn, "abstract_cn": abstract_cn})
 
     return {"id": j["id"], "name": j["name"], "name_cn": j["name_cn"], "desc": j["desc"],
-            "issue": f"Vol {latest_vol}, Issue {latest_iss}" if latest_vol else "",
+            "issue": f"Vol {latest_vol}, Issue {latest_iss_str}" if latest_vol else "",
             "source": "PubMed", "articles": translated}
 
 
