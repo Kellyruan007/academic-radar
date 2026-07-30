@@ -53,7 +53,19 @@
 
     <!-- Favorites Page -->
     <div class="page" id="pageFavorites">
+      <div class="fav-toolbar" id="favToolbar" style="display:none">
+        <button class="fav-toolbar-btn" id="btnExportFav" title="导出收藏">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          <span>导出</span>
+        </button>
+        <button class="fav-toolbar-btn" id="btnImportFav" title="导入收藏">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" transform="scale(1,-1) translate(0,-24)"/></svg>
+          <span>导入</span>
+        </button>
+        <span class="fav-toolbar-hint" id="favSyncHint" style="display:none"></span>
+      </div>
       <div id="favContent"><div class="loading"><div class="spinner"></div><p style="margin-top:16px">加载收藏...</p></div></div>
+      <input type="file" id="favImportFile" accept=".json" style="display:none">
     </div>
 
     <!-- About Page -->
@@ -127,6 +139,7 @@ const App = {
   init() {
     this.bindTabs();
     this.bindFilter();
+    this.bindFavExportImport();
     this.loadData();
     this.updateFavBadge();
   },
@@ -146,6 +159,9 @@ const App = {
 
     // Show/hide filter bar
     document.getElementById('filterBar').style.display = (pageName === 'pageToday') ? 'flex' : 'none';
+    // Show/hide favorites toolbar
+    const favToolbar = document.getElementById('favToolbar');
+    if (favToolbar) favToolbar.style.display = (pageName === 'pageFavorites') ? 'flex' : 'none';
 
     // Lazy load — use rAF to ensure CSS class changes are applied before rendering
     if (pageName === 'pageHistory') this.loadHistory();
@@ -424,8 +440,13 @@ const App = {
     // Ensure favorites is valid
     if (!this.favorites || typeof this.favorites !== 'object') this.favorites = {};
     const favs = Object.values(this.favorites).filter(f => f && typeof f === 'object');
+
+    // Show toolbar
+    const toolbar = document.getElementById('favToolbar');
+    if (toolbar) toolbar.style.display = 'flex';
+
     if (favs.length === 0) {
-      container.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><p>暂无收藏</p><p style="font-size:12px">点击文献卡片上的爱心收藏</p></div>';
+      container.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><p>暂无收藏</p><p style="font-size:12px;margin-bottom:12px">点击文献卡片上的爱心收藏</p><p style="font-size:13px;color:var(--gray2)">如果之前在微信里收藏过，可以点上方「导入」恢复</p></div>';
       return;
     }
 
@@ -518,6 +539,56 @@ const App = {
         this.showToast('已取消收藏');
       });
     });
+  },
+
+  bindFavExportImport() {
+    const btnExport = document.getElementById('btnExportFav');
+    const btnImport = document.getElementById('btnImportFav');
+    const fileInput = document.getElementById('favImportFile');
+    if (btnExport) btnExport.addEventListener('click', () => this.exportFavorites());
+    if (btnImport) btnImport.addEventListener('click', () => fileInput && fileInput.click());
+    if (fileInput) fileInput.addEventListener('change', (e) => this.importFavorites(e));
+  },
+
+  exportFavorites() {
+    const favs = Object.values(this.favorites).filter(f => f && typeof f === 'object');
+    if (favs.length === 0) { this.showToast('暂无收藏可导出'); return; }
+    const blob = new Blob([JSON.stringify(favs, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `学术雷达收藏_${new Date().toISOString().slice(0,10)}.json`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    this.showToast(`已导出 ${favs.length} 条收藏`);
+  },
+
+  importFavorites(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const imported = JSON.parse(ev.target.result);
+        if (!Array.isArray(imported)) { this.showToast('文件格式错误'); return; }
+        let count = 0;
+        imported.forEach(item => {
+          if (item && item.id && !this.favorites[item.id]) {
+            this.favorites[item.id] = item;
+            count++;
+          }
+        });
+        if (count > 0) {
+          this.saveFavorites();
+          this.updateFavBadge();
+          this.renderFavorites();
+          this.showToast(`已导入 ${count} 条收藏`);
+        } else {
+          this.showToast('没有新的收藏可导入（可能已存在）');
+        }
+      } catch(err) { this.showToast('文件解析失败，请确认是 JSON 格式'); }
+    };
+    reader.readAsText(file);
+    e.target.value = ''; // reset
   },
 
   async loadJournals() {
