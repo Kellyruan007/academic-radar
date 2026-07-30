@@ -1,0 +1,18 @@
+{
+  "name": "学术雷达 - 消化内科文献监测",
+  "short_name": "学术雷达",
+  "description": "消化内科每日学术文献推送：胰腺炎、消化道出血、消化道早癌、消化内镜前沿研究",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F0F2F5",
+  "theme_color": "#07C160",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2307C160'/><text x='50' y='68' text-anchor='middle' font-size='50' fill='white'>🔬</text></svg>",
+      "sizes": "100x100",
+      "type": "image/svg+xml"
+    }
+  ],
+  "lang": "zh-CN"
+}

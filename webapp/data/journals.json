@@ -1,0 +1,130 @@
+{
+  "journals": [
+    {
+      "id": "gastrointest-endosc",
+      "name": "Gastrointestinal Endoscopy",
+      "name_cn": "Gastrointestinal Endoscopy (GIE)",
+      "desc": "ASGE官方期刊，内镜领域SCI顶刊",
+      "issue": "Vol 104, Issue 2",
+      "source": "PubMed",
+      "articles": [
+        {
+          "pmid": "42307509",
+          "title_en": "American Society for Gastrointestinal Endoscopy Technology Status Evaluation Report: endoscopic submucosal dissection (with videos).",
+          "abstract_en": "The American Society for Gastrointestinal Endoscopy (ASGE) Technology Committee provides reviews of existing, new, or emerging endoscopic technologies that have an impact on the practice of GI endoscopy. Evidence-based methodology is used, with a MEDLINE literature search to identify pertinent clinical studies on the topic and a MAUDE (U.S. Food and Drug Administration Center for Devices and Radiological Health) database search to identify the reported adverse events of a given technology. Both are supplemented by accessing the \"related articles\" feature of PubMed and by scrutinizing pertinent references cited by the identified studies. Controlled clinical trials are emphasized, but in many cases, data from randomized, controlled trials are lacking. In such cases, large case series, preliminary clinical studies, and expert opinions are used. Technical data are gathered from traditional and Web-based publications, proprietary publications, and informal communications with pertinent vendors. Technology Status Evaluation Reports are drafted by 1 or 2 members of the ASGE Technology Committee, reviewed and edited by the committee as a whole, and approved by the Governing Board of the ASGE. When financial guidance is indicated, the most recent coding data and list prices at the time of publication are provided. For this review, the MEDLINE database was searched through August 2024 for articles related to endoscopic submucosal dissection. Technology Status Evaluation Reports are scientific reviews provided solely for educational and informational purposes. Technology Status Evaluation Reports are not rules and should not be construed as establishing a legal standard of care or as encouraging, advocating, requiring, or discouraging any particular treatment or payment for such treatment.",
+          "authors": [
+            "Leung G",
+            "Guerrero Vinsard D",
+            "Abdi M",
+            "Akerman PA",
+            "Akshintala VS",
+            "Benias PC",
+            "Das KK",
+            "Desilets DJ"
+          ],
+          "journal": "Gastrointestinal endoscopy",
+          "year": "2026",
+          "volume": "104",
+          "issue": "2",
+          "doi": "10.1016/j.gie.2026.03.038",
+          "pub_types": [
+            "<PublicationType UI=\"D016428\">Journal Article",
+            "Review",
+            "Video-Audio Media",
+            "Practice Guideline"
+          ],
+          "title_cn": "美国胃肠内镜学会技术现状评估报告：内镜黏膜下剥离术（附视频）",
+          "abstract_cn": "美国胃肠内镜学会（ASGE）技术委员会对影响胃肠内镜实践的现有、新型或新兴内镜技术进行综述。采用循证医学方法，通过MEDLINE文献检索识别相关临床研究，并通过MAUDE（美国食品药品监督管理局器械与放射卫生中心）数据库检索识别特定技术的已报告不良事件。两者均辅以PubMed“相关文章”功能及对已识别研究引用的相关参考文献的仔细审查。强调对照临床试验，但在许多情况下缺乏随机对照试验数据。此时则采用大型病例系列、初步临床研究及专家意见。技术数据来源于传统及网络出版物、专有出版物以及与相关供应商的非正式沟通。技术状态评估报告由ASGE技术委员会1至2名成员起草，经委员会全体审阅编辑，并由ASGE理事会批准。如需财务指导，则提供最新编码数据及出版时的标价。本综述对MEDLINE数据库进行检索（截至2024年8月），查找与内镜黏膜下剥离术相关的文献。技术状态评估报告仅为教育和信息目的提供的科学综述。技术状态评估报告并非规则，不应被解释为建立法律上的护理标准，或鼓励、倡导、要求、劝阻任何特定治疗或此类治疗的支付。",
+          "category": "消化道早癌",
+          "url": "https://doi.org/10.1016/j.gie.2026.03.038"
+        },
+        {
+          "pmid": "42153933",
+          "title_en": "American Society for Gastrointestinal Endoscopy Technology Status Evaluation Report: tools for benign pancreaticobiliary dilation.",
+          "abstract_en": "The American Society for Gastrointestinal Endoscopy (ASGE) Technology Committee provides reviews of existing, new, or emerging endoscopic technologies that have an impact on the practice of GI endoscopy. An evidence-based methodology is used, with a MEDLINE literature search to identify pertinent clinical studies on the topic and a Manufacturer and User Facility Device Experience (U.S. Food and Drug Administration Center for Devices and Radiological Health) database search to identify the reported adverse events of a given technology. Both are supplemented by accessing the \"related articles\" feature of PubMed and by scrutinizing pertinent references cited by the identified studies. Controlled clinical trials are emphasized, but in many cases, data from randomized controlled trials are lacking. In such cases, large case series, preliminary clinical studies, and expert opinion are used. Technical data are gathered from traditional and web-based publications, proprietary publications, and informal communications with pertinent vendors. Technology Status Evaluation Reports are drafted by 1 or 2 members of the ASGE Technology Committee, reviewed and edited by the committee as a whole, and approved by the ASGE Governing Board. When financial guidance is indicated, the most recent coding data and list prices at the time of publication are provided. For this review, the MEDLINE database was searched through March 2025 for articles related to pancreaticobiliary stricture management. Technology Status Evaluation Reports are scientific reviews provided solely for educational and informational purposes. They are not rules and should not be construed as establishing a legal standard of care or as encouraging, advocating, requiring, or discouraging any particular treatment or payment for such treatment.",
+          "authors": [
+            "Akshintala VS",
+            "Das KK",
+            "Abdi M",
+            "Akerman PA",
+            "Benias PC",
+            "Desilets DJ",
+            "Vinsard DG",
+            "Hanscom M"
+          ],
+          "journal": "Gastrointestinal endoscopy",
+          "year": "2026",
+          "volume": "104",
+          "issue": "2",
+          "doi": "10.1016/j.gie.2026.02.037",
+          "pub_types": [
+            "<PublicationType UI=\"D016428\">Journal Article",
+            "Review",
+            "Practice Guideline"
+          ],
+          "title_cn": "美国胃肠内镜学会技术现状评估报告：良性胰胆管扩张工具",
+          "abstract_cn": "美国胃肠内镜学会（ASGE）技术委员会对影响胃肠内镜实践的现有、新型或新兴内镜技术进行综述。采用循证医学方法，通过MEDLINE文献检索识别相关临床研究，并利用制造商与用户设施设备经验数据库（美国食品药品监督管理局器械与放射卫生中心）检索特定技术的已报告不良事件。两者均辅以访问PubMed的“相关文章”功能，并仔细审查已识别研究引用的相关参考文献。重点强调对照临床试验，但在许多情况下缺乏随机对照试验数据。此时则采用大型病例系列研究、初步临床研究及专家意见。技术数据来源于传统及网络出版物、专有出版物以及与相关供应商的非正式沟通。技术状态评估报告由ASGE技术委员会1至2名成员起草，经委员会全体审阅编辑，并由ASGE理事会批准。如需财务指导，则提供出版时最新的编码数据及标价。本次综述通过MEDLINE数据库检索截至2025年3月与胰胆管狭窄管理相关的文献。技术状态评估报告仅为教育和信息目的提供的科学综述，并非规则，不应被解释为建立法律上的护理标准，或鼓励、倡导、要求、劝阻任何特定治疗或此类治疗的支付。",
+          "category": "消化内镜",
+          "url": "https://doi.org/10.1016/j.gie.2026.02.037"
+        }
+      ],
+      "total_in_issue": 16,
+      "topic_matched": 16,
+      "picked": 2,
+      "pick_date": "20260730"
+    },
+    {
+      "id": "endoscopy",
+      "name": "Endoscopy",
+      "name_cn": "Endoscopy",
+      "desc": "ESGE官方期刊，与GIE齐名",
+      "issue": "",
+      "source": "PubMed",
+      "articles": [],
+      "total_in_issue": 0,
+      "topic_matched": 0,
+      "picked": 0,
+      "pick_date": "20260730"
+    },
+    {
+      "id": "dig-endosc",
+      "name": "Digestive Endoscopy",
+      "name_cn": "Digestive Endoscopy",
+      "desc": "JGES官方期刊，亚洲内镜权威",
+      "pubmed_query": "\"Dig Endosc\"[Journal]",
+      "articles": [],
+      "note": "No results",
+      "total_in_issue": 0,
+      "topic_matched": 0,
+      "picked": 0,
+      "pick_date": "20260730"
+    },
+    {
+      "id": "surg-endosc",
+      "name": "Surgical Endoscopy",
+      "name_cn": "Surgical Endoscopy",
+      "desc": "SAGES/EAES官方期刊，介入内镜与微创外科顶刊",
+      "pubmed_query": "\"Surg Endosc\"[Journal]",
+      "articles": [],
+      "note": "No results",
+      "total_in_issue": 0,
+      "topic_matched": 0,
+      "picked": 0,
+      "pick_date": "20260730"
+    },
+    {
+      "id": "endosc-ultrasound",
+      "name": "Endoscopic Ultrasound",
+      "name_cn": "Endoscopic Ultrasound (EUS)",
+      "desc": "EUS专科期刊，超声内镜领域权威",
+      "pubmed_query": "\"Endosc Ultrasound\"[Journal]",
+      "articles": [],
+      "note": "No results",
+      "total_in_issue": 0,
+      "topic_matched": 0,
+      "picked": 0,
+      "pick_date": "20260730"
+    }
+  ],
+  "updated": "2026-07-30T16:15:32.038821"
+}

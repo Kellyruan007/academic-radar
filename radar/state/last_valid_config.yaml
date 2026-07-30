@@ -1,0 +1,206 @@
+api_keys:
+  crossref_mailto: ''
+  openalex_mailto: ''
+  pubmed_api_key: ''
+  semantic_scholar_key: ''
+archive_retention_days: 30
+authors: []
+dedup:
+  cross_period: true
+  lookback_days: 30
+exclude:
+- veterinary
+- plant biology
+- food science
+- canine
+- feline
+- murine
+- pancreatic cancer
+- hepatocellular carcinoma
+- pediatric pancreatitis
+llm:
+  api_key: REPLACE_WITH_SECRET
+  base_url: https://api.deepseek.com/v1
+  model: deepseek-chat
+  timeout: 30
+output:
+  format: plain
+  max_items: 10
+push:
+  channel: webhook
+  webhook_url: http://localhost:9999/academic-radar-push
+research_focus: '消化内科临床与内镜方向。核心关注：（1）急性/慢性胰腺炎的诊治，包括重症胰腺炎的阶梯治疗、
+
+  内镜下坏死清除术等；（2）消化道出血的内镜下止血与药物治疗，包括静脉曲张与非静脉曲张性出血；
+
+  （3）消化道早癌（食管/胃/结直肠）的内镜诊断与ESD/EMR治疗；（4）ERCP、EUS等高级内镜技术
+
+  的临床应用与技术创新。
+
+  '
+rss_feeds: []
+schedule:
+  custom_days: 7
+  frequency: daily
+  times:
+  - 08:00
+sources:
+  arxiv: true
+  biorxiv: true
+  medrxiv: true
+  openalex: true
+  pubmed: true
+  rss: false
+  semantic_scholar: true
+  x_search: true
+timezone: Asia/Shanghai
+topics:
+  en:
+  - acute pancreatitis
+  - chronic pancreatitis
+  - severe acute pancreatitis
+  - necrotizing pancreatitis
+  - autoimmune pancreatitis
+  - recurrent pancreatitis
+  - gastrointestinal bleeding
+  - upper GI bleeding
+  - lower GI bleeding
+  - variceal bleeding
+  - non-variceal bleeding
+  - obscure GI bleeding
+  - UGIB
+  - LGIB
+  - early gastric cancer
+  - early esophageal cancer
+  - early colorectal cancer
+  - Barrett's esophagus
+  - dysplasia intraepithelial neoplasia
+  - superficial GI neoplasm
+  - endoscopic submucosal dissection
+  - endoscopic mucosal resection
+  - ESD
+  - EMR
+  - POEM
+  - endoscopic retrograde cholangiopancreatography
+  - ERCP
+  - endoscopic ultrasound
+  - EUS
+  - capsule endoscopy
+  - enteroscopy
+  - endoscopic full-thickness resection
+  - EFTR
+  - submucosal tunneling endoscopic resection
+  - STER
+  - magnifying endoscopy
+  - narrow band imaging
+  - chromoendoscopy
+  - confocal laser endomicroscopy
+  - EUS-FNA
+  - EUS-guided drainage
+  - ERCP stone extraction
+  - somatostatin
+  - octreotide
+  - ulinastatin
+  - gabexate mesilate
+  - protease inhibitor pancreatitis
+  - fluid resuscitation pancreatitis
+  - enteral nutrition pancreatitis
+  - percutaneous drainage pancreatitis
+  - step-up approach pancreatitis
+  - necrosectomy
+  - endoscopic necrosectomy
+  - LAMS pancreatitis
+  - proton pump inhibitor bleeding
+  - terlipressin
+  - endoscopic hemostasis
+  - hemoclip hemostasis
+  - argon plasma coagulation bleeding
+  - endoscopic band ligation
+  - sclerotherapy variceal
+  - transjugular intrahepatic portosystemic shunt
+  - TIPS
+  - hemostatic powder
+  - over-the-scope clip
+  - cyanoacrylate gastric varices
+  - endoscopic submucosal dissection device
+  - hybrid ESD
+  - pocket-creation method
+  - traction-assisted ESD
+  - cold snare polypectomy
+  - endoscopic ablation Barrett's
+  - radiofrequency ablation Barrett's
+  - clip closure endoscopic
+  - acute pancreatitis clinical trial
+  - endoscopic necrosectomy versus surgical
+  - early ERCP biliary pancreatitis
+  - endoscopic hemostasis randomized trial
+  - variceal bleeding prophylaxis trial
+  - early versus elective endoscopy UGIB
+  - ESD versus EMR early gastric cancer
+  - ESD versus surgery early GI cancer
+  - endoscopic surveillance Barrett's trial
+  - cold snare versus hot snare polypectomy
+  - POEM versus Heller myotomy
+  - EUS-guided drainage versus percutaneous
+  - trypsinogen activation pancreatitis
+  - NF-kappaB pancreatitis
+  - cytokine storm pancreatitis
+  - autophagy pancreatitis
+  - endoplasmic reticulum stress pancreatitis
+  - intestinal barrier pancreatitis
+  - gut-liver axis variceal
+  - portal hypertension pathophysiology
+  - Wnt beta-catenin gastric cancer
+  - microbiome gastrointestinal cancer
+  - BISAP score pancreatitis
+  - Ranson criteria pancreatitis
+  - CT severity index pancreatitis
+  - procalcitonin pancreatitis
+  - Rockall score bleeding
+  - Glasgow-Blatchford score
+  - AIMS65 score
+  - Paris classification gastric
+  - Pit pattern classification
+  - artificial intelligence endoscopy
+  - deep learning polyp detection
+  - CADe CADx endoscopy
+  - confocal endomicroscopy diagnosis
+  zh:
+  - 急性胰腺炎
+  - 慢性胰腺炎
+  - 重症急性胰腺炎
+  - 坏死性胰腺炎
+  - 自身免疫性胰腺炎
+  - 消化道出血
+  - 上消化道出血
+  - 下消化道出血
+  - 静脉曲张出血
+  - 消化道早癌
+  - 早期胃癌
+  - 早期食管癌
+  - 早期结直肠癌
+  - 巴雷特食管
+  - 上皮内瘤变
+  - 消化内镜
+  - 胃镜
+  - 肠镜
+  - 超声内镜
+  - 胶囊内镜
+  - 内镜黏膜下剥离术
+  - 内镜黏膜切除术
+  - 生长抑素
+  - 奥曲肽
+  - 乌司他丁
+  - 特利加压素
+  - 内镜下止血
+  - 内镜下套扎
+  - 钛夹止血
+  - TIPS
+  - 内镜下坏死清除术
+  - 胰蛋白酶原激活
+  - 门脉高压
+  - 肠道屏障
+  - 人工智能内镜
+  - 深度学习息肉检测
+  - 巴黎分型
+  - 工藤分型

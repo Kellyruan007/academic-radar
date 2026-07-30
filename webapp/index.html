@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="学术雷达">
+<meta name="theme-color" content="#07C160">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2307C160'/><text x='50' y='68' text-anchor='middle' font-size='50' fill='white'>🔬</text></svg>">
+<link rel="manifest" href="manifest.json">
+<title>学术雷达 · 消化内科文献监测</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🔬 学术雷达</h1>
+    <div class="subtitle">消化内科 · 文献监测</div>
+  </div>
+
+  <!-- Filter Bar (Today page only) -->
+  <div class="filter-bar" id="filterBar">
+    <div class="chip active all" data-filter="all">全部<span class="count" id="countAll">0</span></div>
+    <div class="chip cat-pancreatitis" data-filter="胰腺炎">胰腺炎<span class="count" id="countPan">0</span></div>
+    <div class="chip cat-bleeding" data-filter="消化道出血">消化道出血<span class="count" id="countBleed">0</span></div>
+    <div class="chip cat-early-cancer" data-filter="消化道早癌">消化道早癌<span class="count" id="countEC">0</span></div>
+    <div class="chip cat-endoscopy" data-filter="消化内镜">消化内镜<span class="count" id="countEndo">0</span></div>
+    <div class="chip cat-patent" data-filter="专利">专利<span class="count" id="countPatent">0</span></div>
+  </div>
+
+  <!-- Content Area -->
+  <div class="content" id="content">
+
+    <!-- Today Page -->
+    <div class="page active" id="pageToday">
+      <div id="todayContent"><div class="loading"><div class="spinner"></div><p style="margin-top:16px">加载中...</p></div></div>
+    </div>
+
+    <!-- Journals Page -->
+    <div class="page" id="pageJournals">
+      <div id="journalContent"><div class="loading"><div class="spinner"></div><p style="margin-top:16px">加载期刊列表...</p></div></div>
+      <div id="journalArticleContent" style="display:none"></div>
+    </div>
+
+    <!-- History Page -->
+    <div class="page" id="pageHistory">
+      <div id="historyContent"><div class="loading"><div class="spinner"></div><p style="margin-top:16px">加载历史...</p></div></div>
+    </div>
+
+    <!-- Favorites Page -->
+    <div class="page" id="pageFavorites">
+      <div id="favContent"><div class="loading"><div class="spinner"></div><p style="margin-top:16px">加载收藏...</p></div></div>
+    </div>
+
+    <!-- About Page -->
+    <div class="page" id="pageAbout">
+      <div class="about-card">
+        <div class="about-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        <div class="about-name">学术雷达</div>
+        <div class="about-ver">v1.2 · 消化内科版</div>
+        <div class="info-list">
+          <div class="info-row"><span class="info-label">研究方向</span><span class="info-value">胰腺炎 / 消化道出血 / 消化道早癌 / 消化内镜</span></div>
+          <div class="info-row"><span class="info-label">今日推送</span><span class="info-value">8篇文献 + 2篇专利</span></div>
+          <div class="info-row"><span class="info-label">期刊精选</span><span class="info-value">GIE / Endoscopy / Digestive Endoscopy / Surgical Endoscopy / Endoscopic Ultrasound</span></div>
+          <div class="info-row"><span class="info-label">数据来源</span><span class="info-value">PubMed / WIPO PCT</span></div>
+          <div class="info-row"><span class="info-label">翻译引擎</span><span class="info-value">DeepSeek AI</span></div>
+          <div class="info-row"><span class="info-label">每日更新</span><span class="info-value">00:00 更新，当日可见</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tab Bar -->
+  <div class="tab-bar">
+    <div class="tab-item active" data-page="pageToday">
+      <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <span>今日</span>
+    </div>
+    <div class="tab-item" data-page="pageJournals">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="12" y2="16"/></svg>
+      <span>期刊</span>
+    </div>
+    <div class="tab-item" data-page="pageHistory">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>历史</span>
+    </div>
+    <div class="tab-item" data-page="pageFavorites">
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <span>收藏</span>
+      <span class="badge-dot" id="favBadge" style="display:none">0</span>
+    </div>
+    <div class="tab-item" data-page="pageAbout">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>关于</span>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Add to Home Screen Guide (WeChat browser detection) -->
+  <div class="addhome-overlay" id="addHomeOverlay">
+    <div class="addhome-card">
+      <div class="addhome-close" id="addHomeClose">&times;</div>
+      <div class="addhome-icon-wrap">
+        <svg viewBox="0 0 24 24" width="48" height="48"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#07C160"/></svg>
+      </div>
+      <div class="addhome-title">添加到手机桌面</div>
+      <div class="addhome-desc">每天打开学术雷达查看最新文献</div>
+      <div class="addhome-steps" id="addHomeStepsWX">
+        <div class="addhome-step">
+          <span class="step-num">1</span>
+          <span>点击右上角 <strong>···</strong> 菜单</span>
+        </div>
+        <div class="addhome-step">
+          <span class="step-num">2</span>
+          <span>选择 <strong>在浏览器中打开</strong></span>
+        </div>
+        <div class="addhome-step">
+          <span class="step-num">3</span>
+          <span>浏览器菜单中选择 <strong>添加到主屏幕</strong></span>
+        </div>
+      </div>
+      <div class="addhome-steps" id="addHomeStepsBrowser" style="display:none">
+        <div class="addhome-step">
+          <span class="step-num">1</span>
+          <span>点击浏览器底部/顶部 <strong>分享</strong> 按钮</span>
+        </div>
+        <div class="addhome-step">
+          <span class="step-num">2</span>
+          <span>滑动找到 <strong>添加到主屏幕</strong></span>
+        </div>
+        <div class="addhome-step">
+          <span class="step-num">3</span>
+          <span>点击<strong>添加</strong>即可在桌面找到学术雷达</span>
+        </div>
+      </div>
+      <button class="addhome-btn" id="addHomeBtn">知道了</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ===== SVG Icons =====
+const Icons = {
+  star: '<svg viewBox="0 0 24 24" class="star {cls}"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  heart: '<svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
+  journal: '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="12" y2="16"/></svg>',
+  user: '<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>',
+  doi: '<svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>',
+  patent: '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5"/></svg>',
+};
+
+// ===== App State =====
+const App = {
+  data: null,
+  filter: 'all',
+  favorites: JSON.parse(localStorage.getItem('ar_favs') || '{}'),
+  page: 'pageToday',
+  historyDates: [],
+
+  init() {
+    this.bindTabs();
+    this.bindFilter();
+    this.loadData();
+    this.updateFavBadge();
+  },
+
+  bindTabs() {
+    document.querySelectorAll('.tab-item').forEach(el => {
+      el.addEventListener('click', () => this.switchPage(el.dataset.page));
+    });
+  },
+
+  switchPage(pageName) {
+    this.page = pageName;
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+    document.getElementById(pageName).classList.add('active');
+    document.querySelector(`.tab-item[data-page="${pageName}"]`).classList.add('active');
+
+    // Show/hide filter bar
+    document.getElementById('filterBar').style.display = (pageName === 'pageToday') ? 'flex' : 'none';
+
+    // Lazy load
+    if (pageName === 'pageHistory') this.loadHistory();
+    if (pageName === 'pageFavorites') this.renderFavorites();
+    if (pageName === 'pageJournals') this.loadJournals();
+  },
+
+  bindFilter() {
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        this.filter = chip.dataset.filter;
+        this.renderToday();
+      });
+    });
+  },
+
+  async loadData() {
+    try {
+      const resp = await fetch('data/latest.json');
+      this.data = await resp.json();
+    } catch(e) {
+      // Try history
+      try {
+        const resp = await fetch('data/history.json');
+        this.historyDates = (await resp.json()).dates;
+        if (this.historyDates.length > 0) {
+          const resp2 = await fetch(`data/${this.historyDates[0]}.json`);
+          this.data = await resp2.json();
+        }
+      } catch(e2) {
+        document.getElementById('todayContent').innerHTML =
+          '<div class="empty"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>暂无数据</p><p style="font-size:12px">明天 08:00 将首次推送</p></div>';
+        return;
+      }
+    }
+    this.renderToday();
+    this.updateFilterCounts();
+  },
+
+  updateFilterCounts() {
+    if (!this.data) return;
+    const items = this.data.items;
+    const counts = { all: items.length, '胰腺炎': 0, '消化道出血': 0, '消化道早癌': 0, '消化内镜': 0, '专利': 0 };
+    items.forEach(it => {
+      const cat = it.type === 'patent' ? '专利' : it.category;
+      if (counts[cat] !== undefined) counts[cat]++;
+    });
+    document.getElementById('countAll').textContent = `·${counts.all}`;
+    document.getElementById('countPan').textContent = `·${counts['胰腺炎']}`;
+    document.getElementById('countBleed').textContent = `·${counts['消化道出血']}`;
+    document.getElementById('countEC').textContent = `·${counts['消化道早癌']}`;
+    document.getElementById('countEndo').textContent = `·${counts['消化内镜']}`;
+    document.getElementById('countPatent').textContent = `·${counts['专利']}`;
+  },
+
+  renderToday() {
+    if (!this.data) return;
+    const container = document.getElementById('todayContent');
+    const items = this.data.items.filter(it => {
+      if (this.filter === 'all') return true;
+      if (this.filter === '专利') return it.type === 'patent';
+      return it.category === this.filter;
+    });
+
+    if (items.length === 0) {
+      container.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>该分类下暂无内容</p></div>';
+      return;
+    }
+
+    container.innerHTML = items.map((it, idx) => this.cardHTML(it, idx)).join('');
+    this.bindCards();
+  },
+
+  cardHTML(item, idx) {
+    const isFaved = !!this.favorites[item.id];
+    const isPatent = item.type === 'patent';
+    const catClass = item.category || '其他';
+    const score = item.score || 3;
+
+    const title = item.title_cn || item.title_en || '无标题';
+    const titleEn = item.title_en && item.title_cn ? item.title_en : '';
+    const summary = item.summary_cn || item.abstract_cn || item.abstract_en || '';
+
+    let detailHTML = '';
+    if (isPatent) {
+      detailHTML = `
+        <div class="detail-row"><span class="detail-label">专利号</span><span class="detail-value">${item.patent_number || '-'}</span></div>
+        <div class="detail-row"><span class="detail-label">申请人</span><span class="detail-value">${item.assignee || '-'}</span></div>
+        <div class="detail-row"><span class="detail-label">申请日</span><span class="detail-value">${item.filing_date || '-'}</span></div>
+      `;
+
+      // Remove patent link row — Google Patents PCT links are not accessible
+    } else {
+      detailHTML = `
+        <div class="detail-row"><span class="detail-label">作者</span><span class="detail-value">${(item.authors || []).slice(0,5).join(', ')}</span></div>
+        <div class="detail-row"><span class="detail-label">期刊</span><span class="detail-value">${item.journal || '-'} (${item.year || '-'})</span></div>
+        <div class="detail-row"><span class="detail-label">DOI</span><span class="detail-value">${item.doi ? `<a href="https://doi.org/${item.doi}" target="_blank">${item.doi} →</a>` : '-'}</span></div>
+        ${item.pmid ? `<div class="detail-row"><span class="detail-label">PMID</span><span class="detail-value"><a href="https://pubmed.ncbi.nlm.nih.gov/${item.pmid}/" target="_blank">${item.pmid} →</a></span></div>` : ''}
+        ${item.abstract_cn ? `
+        <div class="detail-section">
+          <div class="detail-section-title">英文摘要</div>
+          <div class="abstract-text">${item.abstract_en || '暂无'}</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">中文翻译</div>
+          <div class="abstract-text">${item.abstract_cn}</div>
+        </div>` : `
+        <div class="detail-section">
+          <div class="detail-section-title">摘要</div>
+          <div class="abstract-text">${item.abstract_en || '暂无摘要'}</div>
+        </div>`}
+      `;
+    }
+
+    return `
+      <div class="card" data-id="${item.id}" data-expanded="false" style="animation-delay:${idx*0.05}s">
+        <div class="card-header">
+          <div class="card-tags">
+            ${isPatent ? '<span class="badge badge-patent">专利</span>' : ''}
+            <span class="badge badge-cat ${catClass}">${item.category || '综合'}</span>
+            ${!isPatent ? `<span class="badge badge-source">${item.source || 'PubMed'}</span>` : ''}
+          </div>
+        </div>
+        <div class="card-title">${title}</div>
+        ${titleEn ? `<div class="card-title-en">${titleEn}</div>` : ''}
+        <div class="card-summary">${summary}</div>
+        <div class="card-footer">
+          <div class="card-meta">
+            ${isPatent
+              ? `<span class="meta-item">${Icons.patent}<span>${item.patent_number || ''}</span></span>`
+              : `<span class="meta-item">${Icons.journal}<span>${item.journal || ''}</span></span>
+                 <span class="meta-item">${Icons.user}<span>${(item.authors||[])[0]||''}</span></span>`
+            }
+            ${!isPatent && item.doi ? `<span class="meta-item"><a href="https://doi.org/${item.doi}" target="_blank" style="color:var(--blue);font-size:13px">DOI →</a></span>` : ''}
+            ${!isPatent && item.pmid ? `<span class="meta-item"><a href="https://pubmed.ncbi.nlm.nih.gov/${item.pmid}/" target="_blank" style="color:var(--blue);font-size:13px">PubMed →</a></span>` : ''}
+          </div>
+          <div class="card-actions">
+            <button class="btn-icon btn-share" data-id="${item.id}" title="分享">
+              <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
+            <button class="btn-icon btn-fav ${isFaved?'faved':''}" data-id="${item.id}" title="收藏">
+              ${Icons.heart}
+            </button>
+          </div>
+        </div>
+        <div class="card-detail">${detailHTML}</div>
+      </div>`;
+  },
+
+  bindCards() {
+    // Toggle expand
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-fav') || e.target.closest('.btn-share')) return;
+        const expanded = card.dataset.expanded === 'true';
+        card.dataset.expanded = expanded ? 'false' : 'true';
+        if (!expanded) card.classList.add('expanded');
+        else card.classList.remove('expanded');
+      });
+    });
+
+    // Favorite
+    document.querySelectorAll('.btn-fav').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.id;
+        const item = this.findItem(id);
+        if (!item) return;
+
+        if (this.favorites[id]) {
+          delete this.favorites[id];
+          btn.classList.remove('faved');
+          this.showToast('已取消收藏');
+        } else {
+          this.favorites[id] = {
+            id, type: item.type, category: item.category,
+            title_cn: item.title_cn, title_en: item.title_en,
+            summary_cn: item.summary_cn, abstract_cn: item.abstract_cn,
+            doi: item.doi, patent_number: item.patent_number,
+            url: item.url, journal: item.journal, authors: item.authors,
+            score: item.score, source: item.source,
+            saved_at: new Date().toISOString()
+          };
+          btn.classList.add('faved');
+          this.showToast('已收藏 ✓');
+        }
+        this.saveFavorites();
+        this.updateFavBadge();
+      });
+    });
+
+    // Share
+    document.querySelectorAll('.btn-share').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const item = this.findItem(btn.dataset.id);
+        if (!item) return;
+        const text = item.title_cn || item.title_en;
+        if (navigator.share) {
+          navigator.share({ title: '学术雷达', text, url: item.url || window.location.href });
+        } else {
+          navigator.clipboard.writeText(text + '\n' + (item.url || '')).then(() => {
+            this.showToast('已复制链接');
+          });
+        }
+      });
+    });
+  },
+
+  findItem(id) {
+    if (!this.data) return null;
+    return this.data.items.find(it => it.id === id) || null;
+  },
+
+  saveFavorites() {
+    localStorage.setItem('ar_favs', JSON.stringify(this.favorites));
+  },
+
+  updateFavBadge() {
+    const count = Object.keys(this.favorites).length;
+    const badge = document.getElementById('favBadge');
+    badge.textContent = count;
+    badge.style.display = count > 0 ? 'block' : 'none';
+  },
+
+  async loadHistory() {
+    const container = document.getElementById('historyContent');
+    try {
+      const resp = await fetch('data/history.json');
+      const dates = (await resp.json()).dates;
+      this.historyDates = dates;
+
+      if (dates.length === 0) {
+        container.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><p>暂无历史记录</p><p style="font-size:12px">每天推送后自动归档</p></div>';
+        return;
+      }
+
+      container.innerHTML = dates.map(d => {
+        const dateObj = new Date(d);
+        const weekday = ['日','一','二','三','四','五','六'][dateObj.getDay()];
+        return `
+          <div class="history-item" data-date="${d}">
+            <div>
+              <div class="date">${d}</div>
+              <div class="info">星期${weekday}</div>
+            </div>
+            <span style="color:var(--green);font-size:14px">查看 →</span>
+          </div>`;
+      }).join('');
+
+      document.querySelectorAll('.history-item').forEach(item => {
+        item.addEventListener('click', async () => {
+          const date = item.dataset.date;
+          try {
+            const resp = await fetch(`data/${date}.json`);
+            this.data = await resp.json();
+            this.switchPage('pageToday');
+            this.updateFilterCounts();
+            this.showToast(`已加载 ${date} 的数据`);
+          } catch(e) {
+            this.showToast('加载失败');
+          }
+        });
+      });
+    } catch(e) {
+      container.innerHTML = '<div class="empty"><p>加载失败</p></div>';
+    }
+  },
+
+  renderFavorites() {
+    const container = document.getElementById('favContent');
+    const favs = Object.values(this.favorites);
+    if (favs.length === 0) {
+      container.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><p>暂无收藏</p><p style="font-size:12px">点击文献卡片上的爱心收藏</p></div>';
+      return;
+    }
+
+    // Group by category
+    const grouped = {};
+    favs.forEach(f => {
+      const cat = f.type === 'patent' ? '专利' : (f.category || '其他');
+      if (!grouped[cat]) grouped[cat] = [];
+      grouped[cat].push(f);
+    });
+
+    let html = '';
+    for (const [cat, items] of Object.entries(grouped)) {
+      html += `<div class="fav-section"><div class="fav-section-title">${cat} (${items.length})</div>`;
+      items.forEach((f, idx) => {
+        const isPatent = f.type === 'patent';
+        const catClass = f.category || '其他';
+        html += `
+          <div class="card" data-favid="${f.id}" style="animation-delay:${idx*0.05}s">
+            <div class="card-header">
+              <div class="card-tags">
+                ${isPatent ? '<span class="badge badge-patent">专利</span>' : ''}
+                <span class="badge badge-cat ${catClass}">${f.category || '综合'}</span>
+              </div>
+              <button class="btn-icon btn-fav faved btn-remove-fav" data-favid="${f.id}">
+                ${Icons.heart}
+              </button>
+            </div>
+            <div class="card-title">${f.title_cn || f.title_en || ''}</div>
+            <div class="card-summary">${f.summary_cn || f.abstract_cn || ''}</div>
+            <div class="card-meta" style="margin-top:8px;font-size:13px">
+              <span>收藏于 ${new Date(f.saved_at).toLocaleDateString('zh-CN')}</span>
+              ${f.doi ? `<a href="https://doi.org/${f.doi}" target="_blank" style="color:var(--blue);margin-left:auto">查看原文 →</a>` : ''}
+            </div>
+          </div>`;
+      });
+      html += '</div>';
+    }
+    container.innerHTML = html;
+
+    document.querySelectorAll('.btn-remove-fav').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.favid;
+        delete this.favorites[id];
+        this.saveFavorites();
+        this.updateFavBadge();
+        this.renderFavorites();
+        this.showToast('已取消收藏');
+      });
+    });
+  },
+
+  async loadJournals() {
+    const container = document.getElementById('journalContent');
+    try {
+      const resp = await fetch('data/journals.json');
+      const data = await resp.json();
+      this.journalData = data;
+      this.renderJournals();
+    } catch(e) {
+      container.innerHTML = '<div class="empty"><p>期刊数据加载失败</p><p style="font-size:12px;margin-top:4px">首次使用需先运行journal_fetcher.py生成数据</p></div>';
+    }
+  },
+
+  renderJournals() {
+    const container = document.getElementById('journalContent');
+    // Hide article-only container since we show everything inline now
+    const articleContainer = document.getElementById('journalArticleContent');
+    container.style.display = 'block';
+    if (articleContainer) articleContainer.style.display = 'none';
+
+    if (!this.journalData || !this.journalData.journals) {
+      container.innerHTML = '<div class="empty"><p>暂无期刊数据</p></div>';
+      return;
+    }
+
+    const journals = this.journalData.journals;
+    // Build journal section header
+    const journalIcons = ['📘', '📙', '📗', '📕', '📒'];
+
+    let html = `<div class="journal-pick-header">
+      <div class="journal-pick-title">📰 每日期刊精选</div>
+      <div class="journal-pick-sub">${this.journalData.updated ? '更新于 ' + new Date(this.journalData.updated).toLocaleDateString('zh-CN') : ''} · 每刊2篇</div>
+    </div>`;
+
+    let globalIdx = 0;
+    journals.forEach((j, ji) => {
+      const articles = j.articles || [];
+
+      html += `
+        <div class="journal-section">
+          <div class="journal-section-header">
+            <span class="journal-section-icon">${journalIcons[ji] || '📰'}</span>
+            <div>
+              <div class="journal-section-name">${j.name_cn}</div>
+              <div class="journal-section-meta">${j.issue || ''} · ${articles.length}篇精选</div>
+            </div>
+          </div>`;
+
+      if (articles.length === 0) {
+        html += `<div class="journal-empty-note">本期暂未匹配到相关主题文章</div>`;
+      } else {
+        articles.forEach((art, ai) => {
+          const artId = `journal-${j.id}-${art.pmid || art.doi || ai}`;
+          const isFaved = !!this.favorites[artId];
+          const catClass = art.category || '消化内镜';
+
+          html += `
+            <div class="card journal-pick-card" data-id="${artId}" data-expanded="false" style="animation-delay:${globalIdx*0.04}s">
+              <div class="card-header">
+                <div class="card-tags">
+                  <span class="badge badge-cat ${catClass}">${art.category || '综合'}</span>
+                  ${art.article_type ? `<span class="badge badge-source">${art.article_type}</span>` : ''}
+                </div>
+              </div>
+              <div class="card-title">${art.title_cn || art.title_en || '无标题'}</div>
+              ${art.title_en ? `<div class="card-title-en">${art.title_en}</div>` : ''}
+              <div class="card-footer">
+                <div class="card-meta">
+                  <span class="meta-item">${Icons.user}<span>${(art.authors||[])[0]||'佚名'}</span></span>
+                  ${art.doi ? `<span class="meta-item"><a href="https://doi.org/${art.doi}" target="_blank" style="color:var(--blue);font-size:13px">DOI →</a></span>` : ''}
+                  ${art.pmid ? `<span class="meta-item"><a href="https://pubmed.ncbi.nlm.nih.gov/${art.pmid}/" target="_blank" style="color:var(--blue);font-size:13px">PubMed →</a></span>` : ''}
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon btn-fav ${isFaved?'faved':''}" data-favid="${artId}" title="收藏">
+                    ${Icons.heart}
+                  </button>
+                </div>
+              </div>
+              <div class="card-detail">
+                ${art.abstract_en ? `
+                <div class="detail-section">
+                  <div class="detail-section-title">英文摘要</div>
+                  <div class="abstract-text">${art.abstract_en}</div>
+                </div>` : ''}
+                ${art.abstract_cn ? `
+                <div class="detail-section">
+                  <div class="detail-section-title">${art.abstract_en ? '中文翻译' : '中文摘要'}</div>
+                  <div class="abstract-text">${art.abstract_cn}</div>
+                </div>` : ''}
+                <div class="detail-row" style="margin-top:10px"><span class="detail-label">作者</span><span class="detail-value">${(art.authors||[]).join(', ') || '佚名'}</span></div>
+                ${art.doi ? `<div class="detail-row"><span class="detail-label">DOI</span><span class="detail-value"><a href="https://doi.org/${art.doi}" target="_blank">${art.doi} →</a></span></div>` : ''}
+                ${art.pmid ? `<div class="detail-row"><span class="detail-label">PMID</span><span class="detail-value"><a href="https://pubmed.ncbi.nlm.nih.gov/${art.pmid}/" target="_blank">${art.pmid} →</a></span></div>` : ''}
+                ${art.volume && art.issue ? `<div class="detail-row"><span class="detail-label">卷/期</span><span class="detail-value">Vol ${art.volume}, Issue ${art.issue}</span></div>` : ''}
+              </div>
+            </div>`;
+          globalIdx++;
+        });
+      }
+
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+
+    // Bind expand on journal article cards
+    document.querySelectorAll('.journal-pick-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-fav')) return;
+        const expanded = card.dataset.expanded === 'true';
+        card.dataset.expanded = expanded ? 'false' : 'true';
+        if (!expanded) card.classList.add('expanded');
+        else card.classList.remove('expanded');
+      });
+    });
+
+    // Bind favorite for journal articles
+    document.querySelectorAll('#journalContent .btn-fav').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.favid;
+        if (this.favorites[id]) {
+          delete this.favorites[id];
+          btn.classList.remove('faved');
+          this.showToast('已取消收藏');
+        } else {
+          // Find the article data
+          const card = btn.closest('.card');
+          const titleEl = card ? card.querySelector('.card-title') : null;
+          const titleEnEl = card ? card.querySelector('.card-title-en') : null;
+          const abstractEn = card ? card.querySelector('.detail-section .abstract-text') : null;
+          const abstractCn = abstractEn && card.querySelectorAll('.detail-section .abstract-text').length > 1
+            ? card.querySelectorAll('.detail-section .abstract-text')[1] : null;
+          const catBadge = card ? card.querySelector('.badge-cat') : null;
+
+          this.favorites[id] = {
+            id, type: 'paper', category: catBadge ? catBadge.textContent : '综合',
+            title_cn: titleEl ? titleEl.textContent : '',
+            title_en: titleEnEl ? titleEnEl.textContent : '',
+            saved_at: new Date().toISOString()
+          };
+          btn.classList.add('faved');
+          this.showToast('已收藏 ✓');
+        }
+        this.saveFavorites();
+        this.updateFavBadge();
+      });
+    });
+  },
+
+  showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  }
+};
+
+// ===== Boot =====
+App.init();
+
+// ===== Add to Home Screen Guide =====
+(function() {
+  const ua = navigator.userAgent.toLowerCase();
+  const isWeChat = /micromessenger/i.test(ua);
+  const isIOS = /iphone|ipad|ipod/i.test(ua);
+
+  const overlay = document.getElementById('addHomeOverlay');
+  const closeBtn = document.getElementById('addHomeClose');
+  const okBtn = document.getElementById('addHomeBtn');
+  const stepsWX = document.getElementById('addHomeStepsWX');
+  const stepsBrowser = document.getElementById('addHomeStepsBrowser');
+
+  // Show appropriate steps
+  if (isWeChat) {
+    stepsWX.style.display = 'block';
+    stepsBrowser.style.display = 'none';
+  } else {
+    stepsWX.style.display = 'none';
+    stepsBrowser.style.display = 'block';
+  }
+
+  // Show overlay on first visit (once per session)
+  const shown = sessionStorage.getItem('ar_addhome_shown');
+  if (!shown) {
+    setTimeout(() => { overlay.classList.add('show'); }, 1500);
+    sessionStorage.setItem('ar_addhome_shown', '1');
+  }
+
+  function hideOverlay() {
+    overlay.classList.remove('show');
+  }
+
+  closeBtn.addEventListener('click', hideOverlay);
+  okBtn.addEventListener('click', hideOverlay);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) hideOverlay();
+  });
+})();
+</script>
+</body>
+</html>
