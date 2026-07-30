@@ -103,47 +103,6 @@
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
-  <!-- Add to Home Screen Guide (WeChat browser detection) -->
-  <div class="addhome-overlay" id="addHomeOverlay">
-    <div class="addhome-card">
-      <div class="addhome-close" id="addHomeClose">&times;</div>
-      <div class="addhome-icon-wrap">
-        <svg viewBox="0 0 24 24" width="48" height="48"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#07C160"/></svg>
-      </div>
-      <div class="addhome-title">添加到手机桌面</div>
-      <div class="addhome-desc">每天打开学术雷达查看最新文献</div>
-      <div class="addhome-steps" id="addHomeStepsWX">
-        <div class="addhome-step">
-          <span class="step-num">1</span>
-          <span>点击右上角 <strong>···</strong> 菜单</span>
-        </div>
-        <div class="addhome-step">
-          <span class="step-num">2</span>
-          <span>选择 <strong>在浏览器中打开</strong></span>
-        </div>
-        <div class="addhome-step">
-          <span class="step-num">3</span>
-          <span>浏览器菜单中选择 <strong>添加到主屏幕</strong></span>
-        </div>
-      </div>
-      <div class="addhome-steps" id="addHomeStepsBrowser" style="display:none">
-        <div class="addhome-step">
-          <span class="step-num">1</span>
-          <span>点击浏览器底部/顶部 <strong>分享</strong> 按钮</span>
-        </div>
-        <div class="addhome-step">
-          <span class="step-num">2</span>
-          <span>滑动找到 <strong>添加到主屏幕</strong></span>
-        </div>
-        <div class="addhome-step">
-          <span class="step-num">3</span>
-          <span>点击<strong>添加</strong>即可在桌面找到学术雷达</span>
-        </div>
-      </div>
-      <button class="addhome-btn" id="addHomeBtn">知道了</button>
-    </div>
-  </div>
-
 </div>
 
 <script>
@@ -675,44 +634,6 @@ const App = {
 // ===== Boot =====
 App.init();
 
-// ===== Add to Home Screen Guide =====
-(function() {
-  const ua = navigator.userAgent.toLowerCase();
-  const isWeChat = /micromessenger/i.test(ua);
-  const isIOS = /iphone|ipad|ipod/i.test(ua);
-
-  const overlay = document.getElementById('addHomeOverlay');
-  const closeBtn = document.getElementById('addHomeClose');
-  const okBtn = document.getElementById('addHomeBtn');
-  const stepsWX = document.getElementById('addHomeStepsWX');
-  const stepsBrowser = document.getElementById('addHomeStepsBrowser');
-
-  // Show appropriate steps
-  if (isWeChat) {
-    stepsWX.style.display = 'block';
-    stepsBrowser.style.display = 'none';
-  } else {
-    stepsWX.style.display = 'none';
-    stepsBrowser.style.display = 'block';
-  }
-
-  // Show overlay on first visit (once per session)
-  const shown = sessionStorage.getItem('ar_addhome_shown');
-  if (!shown) {
-    setTimeout(() => { overlay.classList.add('show'); }, 1500);
-    sessionStorage.setItem('ar_addhome_shown', '1');
-  }
-
-  function hideOverlay() {
-    overlay.classList.remove('show');
-  }
-
-  closeBtn.addEventListener('click', hideOverlay);
-  okBtn.addEventListener('click', hideOverlay);
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) hideOverlay();
-  });
-})();
 </script>
 </body>
 </html>
