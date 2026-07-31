@@ -25,7 +25,8 @@ jobs:
       - name: Replace API key in config
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: sed -i "s|api_key:.*|api_key: \"$DEEPSEEK_API_KEY\"|g" radar/academic_radar_config.yaml
+        run:|background: 
+        sed -i "s|api_key:.*|api_key: \"$DEEPSEEK_API_KEY\"|g" radar/academic_radar_config.yaml
       - name: Run radar main
         env:
           RADAR_DIR: ${{ github.workspace }}/radar
