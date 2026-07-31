@@ -19,14 +19,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-          cache: 'pip'
       - name: Install dependencies
         run: pip install PyYAML requests python-dateutil feedparser openai tzdata
       - name: Replace API key in config
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run:|background: 
-        sed -i "s|api_key:.*|api_key: \"$DEEPSEEK_API_KEY\"|g" radar/academic_radar_config.yaml
+        run: |
+          sed -i "s|api_key:.*|api_key: \"$DEEPSEEK_API_KEY\"|g" radar/academic_radar_config.yaml
       - name: Run radar main
         env:
           RADAR_DIR: ${{ github.workspace }}/radar
