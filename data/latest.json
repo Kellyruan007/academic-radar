@@ -1,11 +1,10 @@
 {
-  "date": "2026-10-10",
-  "generated_at": "2026-10-10T20:01:53+08:00",
+  "date": "2026-10-11",
+  "generated_at": "2026-10-11T20:09:45+08:00",
   "stats": {
-    "total_papers": 8,
+    "total_papers": 7,
     "total_patents": 2,
     "sources": [
-      "semantic_scholar",
       "openalex"
     ]
   },
@@ -16,7 +15,7 @@
       "category": "消化内镜",
       "title_cn": "乳酸林格液标准与积极水化预防ERCP术后结局比较",
       "title_en": "Comparative Outcomes of Lactated Ringer’s Solution with Standard and Aggressive Hydration in Preventing Post-ERCP",
-      "abstract_cn": "背景：内镜逆行胰胆管造影术后胰腺炎（PEP）是ERCP最常见的并发症，全球报道发生率为3%至15%，在某些高危人群中发生率更高。药物预防和操作调整等预防方法已被讨论，但液体治疗的作用，尤其是使用乳酸林格液进行积极水化，因其改善胰腺微循环和减轻炎症的潜在效果而日益受到关注。目的：比较使用乳酸林格液进行积极水化与标准水化对ERCP术后胰腺炎发生率及临床结局的影响。方法：这是一项在拉合尔服务医院内科和胃肠病学科进行的随机对照试验（168例接受ERCP的患者），分为积极水化组和标准水化组（每组n=84）。积极水化方案为ERCP期间以6 ml/kg/小时输注，随后给予40 ml/kg团注，术后继续输注；而标准水化则遵循传统指南。采用结构化调查表获取人口学、临床、实验室和操作相关变量的数据。统计分析使用SPSS第28版进行，采用独立样本t检验和卡方检验，以p<0.05评估检验结果的显著性。结果：积极水化组的PEP发生率（4.8%）显著低于标准水化组（16.7%）（p=0.01），比值比为0.25（95% CI：0.08-0.78）。积极水化组术后酶水平显著降低，包括淀粉酶（12小时时145 ± 60 vs 210 ± 85 U/L，p=0.001）和脂肪酶（180 ± 70 vs 260 ± 95 U/L，p=0.001）。48小时CRP水平也更低（10.2 ± 4.8 vs 18.5 ± 6.2 mg/L，p=0.001）。积极水化组住院时间显著缩短（3.1 ± 1.2 vs 4.8 ± 1.9天，p=0.001），ICU入住率降低（1.2% vs 7.1%，p=0.04）。结论：与常规水化相比，使用乳酸林格液进行积极水化在降低ERCP术后胰腺炎的发生率和严重程度、改善生化结局及缩短住院时间方面更为有效。它是一种有价值、经济且可行的预防PEP的方法。",
+      "abstract_cn": "背景：内镜逆行胰胆管造影术后胰腺炎（PEP）是ERCP最常见的并发症，全球报道发生率为3%至15%，在某些高危人群中发生率更高。药物预防和操作调整等预防方法已有讨论，但液体治疗的作用，尤其是使用乳酸林格液进行积极水化治疗，因其改善胰腺微循环和减轻炎症的潜在效果而日益受到关注。目的：比较乳酸林格液积极水化与标准水化对ERCP术后胰腺炎发生率及临床结局的影响。方法：这是一项在拉合尔服务医院内科和胃肠病学科进行的随机对照试验（168例接受ERCP的患者），分为积极水化组和标准水化组（每组n=84）。积极水化方案为ERCP期间以6 ml/kg/小时输注，随后给予40 ml/kg快速补液，术后继续输注；而标准水化则遵循传统指南。采用结构化调查表获取人口学、临床、实验室和操作相关变量的数据。统计分析使用SPSS第28版进行，采用独立样本t检验和卡方检验，以p<0.05评估检验结果的显著性。结果：积极水化组的PEP发生率（4.8%）显著低于标准水化组（16.7%）（p=0.01），比值比为0.25（95% CI：0.08-0.78）。积极水化组术后酶水平显著降低，包括淀粉酶（12小时时145 ± 60 vs 210 ± 85 U/L，p=0.001）和脂肪酶（180 ± 70 vs 260 ± 95 U/L，p=0.001）。48小时CRP水平也更低（10.2 ± 4.8 vs 18.5 ± 6.2 mg/L，p=0.001）。积极水化组住院时间显著缩短（3.1 ± 1.2 vs 4.8 ± 1.9天，p=0.001），ICU入住率降低（1.2% vs 7.1%，p=0.04）。结论：与常规水化相比，使用乳酸林格液进行积极水化在降低ERCP术后胰腺炎的发生率和严重程度、改善生化结局及缩短住院时间方面更为有效。它是一种有价值、经济且可行的预防PEP的方法。",
       "abstract_en": "Background: Post-endoscopic retrograde cholangiopancreatography pancreatitis (PEP) is the most prevalent complication of ERCP with reported incidence of 3 to 15% globally and in some cases, it is higher in the high-risk groups.Prophylactic methods like pharmacological agent and procedural adjustments have been discussed, but the role of fluid therapy and especially aggressive hydration using lactated Ringer solution has become increasingly discussed because of its potential effects of improving the pancreatic microcirculation and reducing inflammation.Aim: To compare the influence of aggressive versus standard hydration with lactated Ringer's solution on the incidence and clinical outcomes of post-ERCP pancreatitis.Methods: It was a randomized controlled trial done at the Department of Medicine and Gastroenterology and Services Hospital Lahore (168 patients undergoing ERCPs) in aggressive and standard hydration groups (n=84 each).Aggressive hydration involved 6 ml/kg/hour during ERCP, then 40 ml/kg bolus, with continued infusion after the procedure whereas standard hydration adhered to traditional guidelines.A structured proforma was used to obtain data on demographic, clinical, laboratory, and procedural variables.The statistical analysis was conducted by means of SPSS version 28 with the use of independent t-tests and chi-square tests, where p<0.05 was used to assess the significance of test results.Results: The incidence of PEP was significantly lower in the aggressive hydration group (4.8%) compared to the standard hydration group (16.7%) (p=0.01), with an odds ratio of 0.25 (95% CI: 0.08-0.78).Post-procedural enzyme levels were significantly reduced in the aggressive group, including amylase (145 ± 60 vs 210 ± 85 U/L at 12 hours, p=0.001) and lipase (180 ± 70 vs 260 ± 95 U/L, p=0.001).CRP levels at 48 hours were also lower (10.2 ± 4.8 vs 18.5 ± 6.2 mg/L, p=0.001).Hospital stay was significantly shorter (3.1 ± 1.2 vs 4.8 ± 1.9 days, p=0.001), and ICU admissions were reduced (1.2% vs 7.1%, p=0.04) in the aggressive hydration group.Conclusion: Aggressive hydration with lactated Ringer solution is much more effective in reducing the rate and severity of post-ERCP pancreatitis, biochemical outcome and length of stay in the hospital than usual hydration.It is a valuable, inexpensive, and viable method to prevent PEP.",
       "authors": [],
       "journal": "International Journal of Drug Delivery Technology",
@@ -27,105 +26,33 @@
       "score": 5,
       "source": "openalex",
       "status": "published",
-      "summary_cn": "在ERCP患者中，与标准水化相比，乳酸林格液积极水化显著降低了术后胰腺炎发生率（4.8% vs 16.7%，p=0.01），并降低了术后淀粉酶、脂肪酶及CRP水平，缩短了住院时间，减少了ICU入住率。"
+      "summary_cn": "在ERCP患者中，与标准水化相比，乳酸林格液积极水化可显著降低术后胰腺炎发生率（4.8% vs 16.7%，p=0.01），并降低术后淀粉酶、脂肪酶及CRP水平，缩短住院时间，减少ICU入住率。"
     },
     {
-      "id": "10.3389/fmed.2026.1948368",
-      "type": "paper",
-      "category": "消化道出血",
-      "title_cn": "病例报告：急性酒精性胰腺炎后多发性胰腺假性动脉瘤致命性复发性破裂",
-      "title_en": "Case Report: Fatal recurrent rupture of multiple pancreatic pseudoaneurysms following acute alcoholic pancreatitis",
-      "abstract_cn": "胰腺假性动脉瘤（PPA）是胰腺炎一种严重且危及生命的血管并发症。本病例强调了在酒精性胰腺炎患者中进行全面血管评估和监测以预防致命不良结局的迫切必要性。\n\n一名53岁男性，有30年大量饮酒史（每日饮用500 mL 52% ABV白酒，相当于每日约205 g纯乙醇），于2026年4月2日因呕血和失血性休克就诊于我院急诊科。他于2025年11月在外院被诊断为急性胰腺炎并发胰腺假性囊肿，但未接受规范化随访和治疗。增强CT证实胰头假性动脉瘤破裂，出血延伸至十二指肠。急诊行胃十二指肠动脉经导管动脉栓塞术，呕血暂时缓解。随后，患者出现进行性腹痛、腹胀及腹膜刺激征。复查CT证实复发性腹腔内出血。第二次数字减影血管造影（DSA）发现一条未被识别的、起源于肠系膜上动脉（SMA）的供血分支供应胰头假性动脉瘤，并成功予以栓塞。患者病情暂时稳定，血红蛋白水平逐渐升高。2026年4月14日，患者突发剧烈腹痛和腹胀。复查增强CT显示脾门处一处既往存在的微小假性动脉瘤增大并破裂，导致大量腹腔内出血。患者在准备急诊血管内介入治疗期间出现难治性失血性休克，继而心搏骤停，最终死亡。栓塞后血流动力学变化可能促进了既往病变的进行性增大及随后的破裂，尽管在这一单发病例中该因果机制无法被确切证实。\n\n本病例表明，胰腺炎相关假性动脉瘤可能是多灶性的。成功控制主要出血病变并不能消除其他既往存在的小假性动脉瘤破裂的风险，而仅局限于腹腔干的初次不完全血管造影可能遗漏SMA供血分支，即使在胰腺炎相关假性动脉瘤初次血管内介入治疗技术上成功之后亦是如此。",
-      "abstract_en": "\n \n Pancreatic pseudoaneurysm (PPA) is a severe and life-threatening vascular complication of pancreatitis. This case highlights the critical need for comprehensive vascular assessment and surveillance in patients with alcoholic pancreatitis to prevent fatal adverse outcomes.\n \n \n \n A 53-year-old man with a 30-year history of heavy alcohol intake (500 mL of 52% ABV Baijiu daily, corresponding to an estimated 205 g pure ethanol per day) presented to our emergency department with hematemesis and hemorrhagic shock on 2 April 2026. He was diagnosed with acute pancreatitis complicated by a pancreatic pseudocyst at another hospital in November 2025 but did not receive standardized follow-up and treatment. Contrast-enhanced CT confirmed rupture of a pancreatic head pseudoaneurysm with hemorrhage extending into the duodenum. Emergency transarterial embolization of the gastroduodenal artery was performed, and hematemesis resolved temporarily. Subsequently, the patient developed progressive abdominal pain, distension, and peritoneal irritation signs. Repeat CT confirmed recurrent intra-abdominal hemorrhage. A second digital subtraction angiography (DSA) identified an unrecognized feeding branch arising from the superior mesenteric artery (SMA) supplying the pancreatic head pseudoaneurysm, which was successfully embolized. The patient's condition stabilized temporarily, with a gradual increase in hemoglobin levels. On 14 April 2026, the patient suffered sudden severe abdominal pain and abdominal distension. Follow-up contrast-enhanced CT revealed enlargement and rupture of a pre-existing tiny pseudoaneurysm in the splenic hilum, resulting in massive intra-abdominal hemorrhage. The patient developed refractory hemorrhagic shock followed by cardiac arrest during preparation for emergency endovascular intervention and ultimately died. Post-embolization hemodynamic changes may have contributed to progressive enlargement and subsequent rupture of the pre-existing lesion, although this causal mechanism cannot be definitively proven in this single case.\n \n \n \n This case illustrates that pancreatitis-associated pseudoaneurysms may be multifocal. Successful control of a dominant bleeding lesion does not eliminate the risk of rupture of the separate pre-existing small pseudoaneurysm, and incomplete initial angiography limited only to the celiac trunk may miss SMA feeding branches, even after technically successful initial endovascular intervention for pancreatitis-associated pseudoaneurysm.\n",
-      "authors": [
-        "Xin Wang",
-        "De-Yu Zhang",
-        "Dong-Yang Wang",
-        "Hao Lin",
-        "Wen-Xiu Zhang",
-        "Xing-Shun Qi"
-      ],
-      "journal": "Frontiers in Medicine",
-      "year": "2026",
-      "doi": "10.3389/fmed.2026.1948368",
-      "pmid": null,
-      "url": "https://doi.org/10.3389/fmed.2026.1948368",
-      "score": 5,
-      "source": "semantic_scholar",
-      "status": "published",
-      "summary_cn": "本病例报告描述了一例酒精性急性胰腺炎患者发生多发性胰腺假性动脉瘤反复破裂的致死性结局，强调即使对优势出血病灶成功行血管内栓塞后，仍可能因未识别的SMA供血分支或既存小假性动脉瘤进展而再次致命性出血。提示对胰腺炎相关假性动脉瘤需进行全面血管评估与监测，初始血管造影仅局限于腹腔干可能遗漏SMA供血分支。"
-    },
-    {
-      "id": "10.1055/a-2966-7129",
+      "id": "10.4240/wjgs.124443",
       "type": "paper",
       "category": "胰腺炎",
-      "title_cn": "慢性胰腺炎胰管结石及狭窄的全覆膜自膨式金属支架内镜治疗",
-      "title_en": "Endoscopic management of pancreatic duct stones and stricture in chronic pancreatitis using a fully covered self-expandable metal stent",
-      "abstract_cn": "",
-      "abstract_en": "",
+      "title_cn": "内镜逆行胰胆管造影术后胰腺炎的预防策略：系统综述与荟萃分析",
+      "title_en": "Preventive strategies for post-endoscopic retrograde cholangiopancreatography pancreatitis: A systematic review and meta-analysis",
+      "abstract_cn": "分析和数据解读；刘YY进行了偏倚风险评估及推荐分级的评估、制定与评价证据评价；张YF和周XQ承担",
+      "abstract_en": "analysis and data interpretation; Liu YY conducted risk-of-bias assessment and Grading of Recommendations Assessment, Development and Evaluation evidence evaluation; Zhang YF and Zhou XQ undertook",
       "authors": [
-        "Nan Zeng",
-        "Beibei Li",
-        "Jingbo Yang"
+        "Xiao-Yan Wang",
+        "Yi-Yi Liu",
+        "Yan-Feng Zhang",
+        "Xiao-Qin Zhou",
+        "Meng-Chen Sun",
+        "Qin Zheng"
       ],
-      "journal": "Endoscopy",
+      "journal": "World Journal of Gastrointestinal Surgery",
       "year": "2026",
-      "doi": "10.1055/a-2966-7129",
+      "doi": "10.4240/wjgs.124443",
       "pmid": null,
-      "url": "https://doi.org/10.1055/a-2966-7129",
+      "url": "https://doi.org/10.4240/wjgs.124443",
       "score": 5,
       "source": "openalex",
       "status": "published",
-      "summary_cn": "该论文标题涉及慢性胰腺炎中胰管结石和狭窄的内镜下管理，使用全覆膜自膨式金属支架，属于消化内科内镜方向中胰腺炎诊治与高级内镜技术应用的核心范畴。由于未提供摘要，无法总结具体核心发现。"
-    },
-    {
-      "id": "10.1186/s40001-026-05309-5",
-      "type": "paper",
-      "category": "胰腺炎",
-      "title_cn": "基于入院CT的自监督深度学习对亚特兰大定义的重症急性胰腺炎进行风险分层：一项多中心研究",
-      "title_en": "Admission CT-based risk stratification for Atlanta-defined severe acute pancreatitis using self-supervised deep learning: a multicenter study",
-      "abstract_cn": "本研究旨在开发并外部验证一种自监督深度学习模型，该模型整合入院时平扫和增强CT，用于亚特兰大定义的重症急性胰腺炎（SAP，持续性器官衰竭>48小时）的入院风险分层，从而解决当前基于临床和影像学严重程度评估的局限性。单位信息：请核查作者单位信息是否处理正确，如有需要请予以修正。我们已仔细审查了所有作者的单位信息。已进行小幅修改以更正作者Shifang Zhou的单位信息。更新后的机构信息见修订稿。\n\n这项多中心回顾性研究纳入了来自三个三级中心的2,677例急性胰腺炎患者，根据2012年修订版亚特兰大分类标准，将其分为重症（依据改良Marshall评分，持续性器官衰竭>48小时）和非重症。所有患者均在入院24小时内接受了平扫和增强CT检查。采用对比自监督学习在训练队列（中心I）的10,740张未标注CT图像上预训练SE-ResNet-50骨干网络，随后使用标注的双期扫描进行微调以预测SAP。开发了单模态和多模态融合分类器。采用受试者工作特征曲线下面积（AUC）、灵敏度、特异度、阳性预测值和阴性预测值、准确率及F1分数评估判别能力，配对AUC差异通过患者层面的Bootstrap重采样评估。使用决策曲线分析量化净临床获益，并通过Grad-CAM和SHAP分析提供模型可解释性。\n\n共评估2,677例患者（中位年龄41岁[IQR，34–53]；2,049例男性），并分配至训练队列（n=1,790）、外部验证队列I（n=535）和外部验证队列II（n=352）。融合模型在三个队列中的AUC分别为0.938、0.930和0.911。其判别能力与仅CECT模型在统计学上等效，表明仅CECT即携带主要预测信号（AUC范围，0.911–0.938），且高于仅NECT模型（AUC范围，0.757–0.807；所有p<0.001）。在各队列中，融合模型均保持高灵敏度（最高达94.9%）和良好的净临床获益。NECT、CECT和融合模型的Youden指数阈值（0.166、0.189和0.247）在训练队列中选择，并原样应用于两个外部队列。自监督CT框架为亚特兰大定义的SAP提供了有效的入院风险分层，其中CECT衍生特征携带主要预测信号。该模型可从常规入院影像中识别持续性器官衰竭高风险患者，并可能支持标准化的分诊和监测决策。当CECT禁忌时，仅NECT变体仍具有实用价值。由于基线器官功能状态不可获得，该模型可能部分反映了入院时已存在的早期全身严重程度，而非纯粹预测未来恶化；需要使用结构化临床终点进行前瞻性验证。",
-      "abstract_en": "\n \n \n This study aimed to develop and externally validate a self-supervised deep learning model that integrates admission non-contrast and contrast-enhanced CT for admission risk stratification of Atlanta-defined severe acute pancreatitis (SAP, persistent organ failure > 48 h), thereby addressing limitations of current clinical and imaging-based severity assessments.Affiliations: Kindly check whether the authors affiliations are processed correctly and amend if any. We have thoroughly reviewed all authors’ affiliations. Minor revisions have been made to correct the affiliation of author Shifang Zhou. The updated institutional information is shown in the revised manuscript.\n \n \n \n This multicenter retrospective study included 2,677 patients with acute pancreatitis from three tertiary centers who were classified as having severe (persistent organ failure > 48 h per the modified Marshall score) or non-severe disease according to the 2012 revised Atlanta Classification. All patients underwent both unenhanced and contrast-enhanced CT within 24 h of admission. An SE-ResNet-50 backbone was pretrained using contrastive self-supervised learning on 10,740 unlabeled CT images from the training cohort (Center I) and was then fine-tuned for SAP prediction using labeled dual-phase scans. Single-modality and multimodal fusion classifiers were developed. Discrimination was evaluated with the area under the receiver operating characteristic curve (AUC), sensitivity, specificity, positive and negative predictive values, accuracy, and F1 score, with paired AUC differences assessed by patient-level bootstrap resampling. Decision curve analysis was used to quantify net clinical benefit, and Grad-CAM and SHAP analyses provided model interpretability.\n \n \n \n \n A total of 2,677 patients (median age, 41 years [IQR, 34–53]; 2,049 men) were evaluated and assigned to the training cohort (\n n\n = 1,790), external validation cohort I (\n n\n = 535), and external validation cohort II (\n n\n = 352). The Fusion model achieved AUCs of 0.938, 0.930, and 0.911 in the three cohorts, respectively. Its discrimination was statistically equivalent to that of the CECT-only model, indicating that CECT alone carried the dominant predictive signal (AUC range, 0.911–0.938) and was higher than that of the NECT-only model (AUC range, 0.757–0.807; all\n p\n < 0.001). Across cohorts, the Fusion model maintained high sensitivity (up to 94.9%) and favorable net clinical benefit. Youden index thresholds for NECT, CECT, and Fusion (0.166, 0.189, and 0.247) were selected in the training cohort and applied unchanged to both external cohorts. A self-supervised CT framework provided effective admission risk stratification for Atlanta-defined SAP, with CECT-derived features carrying the dominant predictive signal. The model identifies patients at elevated risk of persistent organ failure from routine admission imaging and may support standardized triage and monitoring decisions. The NECT-only variant retained practical value when CECT was contraindicated. Because baseline organ-function status was not available, the model may partly reflect early systemic severity already present at admission rather than purely predicting future deterioration; prospective validation with structured clinical endpoints is required.\n \n",
-      "authors": [
-        "Shi-Fang Zhou",
-        "Wei Chen",
-        "Ke-Xiang Qin",
-        "Hua Li",
-        "Feng-Ning Tang",
-        "Yue Li",
-        "Qing-Ping Guo"
-      ],
-      "journal": "European Journal of Medical Research",
-      "year": "2026",
-      "doi": "10.1186/s40001-026-05309-5",
-      "pmid": null,
-      "url": "https://doi.org/10.1186/s40001-026-05309-5",
-      "score": 4,
-      "source": "semantic_scholar",
-      "status": "published",
-      "summary_cn": "该多中心研究开发并外部验证了一种基于入院非增强和增强CT的自监督深度学习模型，用于2012修订版Atlanta分类定义的SAP（持续性器官衰竭>48h）入院风险分层，Fusion模型在三队列中AUC达0.938、0.930和0.911，其中CECT单独携带主导预测信号（AUC 0.911–0.938），显著优于NECT单独模型（AUC 0.757–0.807）。模型可从常规入院影像识别持续性器官衰竭高风险患者，支持标准化分诊与监测决策，NECT变体在CECT禁忌时仍有实用价值。"
-    },
-    {
-      "id": "10.21203/rs.3.rs-11061587/v1",
-      "type": "paper",
-      "category": "胰腺炎",
-      "title_cn": "基于机器学习列线图预测重症监护室重症急性胰腺炎的开发与内部验证：一项使用MIMIC-IV数据库的回顾性队列研究",
-      "title_en": "Development and internal validation of a machine-learning-informed nomogram for predicting severe acute pancreatitis in the intensive care unit: a retrospective cohort study using the MIMIC-IV database",
-      "abstract_cn": "",
-      "abstract_en": "",
-      "authors": [
-        "Gaozhi Zhang",
-        "Xufeng Chen"
-      ],
-      "journal": "Research Square",
-      "year": "2026",
-      "doi": "10.21203/rs.3.rs-11061587/v1",
-      "pmid": null,
-      "url": "https://doi.org/10.21203/rs.3.rs-11061587/v1",
-      "score": 4,
-      "source": "openalex",
-      "status": "published",
-      "summary_cn": "该研究基于MIMIC-IV数据库开发并内部验证了一个机器学习驱动的列线图，用于预测ICU中重症急性胰腺炎的发生。由于摘要未提供，无法总结具体预测因子或模型性能等核心发现。"
+      "summary_cn": "该论文是一项关于内镜逆行胰胆管造影术后胰腺炎预防策略的系统综述与荟萃分析，摘要中提及了数据分析、偏倚风险评估及GRADE证据评价等研究方法。"
     },
     {
       "id": "10.1007/s10620-026-10240-0",
@@ -148,10 +75,66 @@
       "doi": "10.1007/s10620-026-10240-0",
       "pmid": null,
       "url": "https://doi.org/10.1007/s10620-026-10240-0",
+      "score": 4,
+      "source": "openalex",
+      "status": "published",
+      "summary_cn": "该论文标题提示锌转运体ZIP7与重症急性胰腺炎中的肠道屏障损伤相关，并可能涉及线粒体稳态和铁死亡机制。由于未提供摘要，无法总结具体发现。"
+    },
+    {
+      "id": "10.1007/s00261-026-05822-5",
+      "type": "paper",
+      "category": "胰腺炎",
+      "title_cn": "基于术前CT的影像组学列线图预测胰十二指肠切除术后胰腺切除术后急性胰腺炎的开发与验证",
+      "title_en": "Development and validation of a preoperative CT-based radiomics nomogram for predicting postpancreatectomy acute pancreatitis after pancreatoduodenectomy",
+      "abstract_cn": "",
+      "abstract_en": "",
+      "authors": [
+        "Hebing Chen",
+        "Limeng Sun",
+        "Jingyi Liu",
+        "Fuze Cong",
+        "Xiang Li",
+        "Qiang Xu",
+        "Huadan Xue"
+      ],
+      "journal": "Abdominal Radiology",
+      "year": "2026",
+      "doi": "10.1007/s00261-026-05822-5",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/s00261-026-05822-5",
       "score": 3,
       "source": "openalex",
       "status": "published",
-      "summary_cn": "该论文标题提示锌转运体ZIP7与重症急性胰腺炎中的肠道屏障损伤相关，并可能涉及线粒体稳态和铁死亡机制。由于未提供摘要，无法总结具体研究发现。"
+      "summary_cn": "该论文标题表明其开发并验证了一种基于术前CT的影像组学列线图，用于预测胰十二指肠切除术后胰腺切除术后急性胰腺炎。由于摘要未提供，无法总结具体发现。"
+    },
+    {
+      "id": "10.1177/1753495x261492750",
+      "type": "paper",
+      "category": "胰腺炎",
+      "title_cn": "妊娠期双相性高甘油三酯血症伴载脂蛋白C-II缺乏",
+      "title_en": "Biphasic hypertriglyceridemia in pregnancy with apolipoprotein C-II deficiency",
+      "abstract_cn": "载脂蛋白C-II（ApoC-II）缺乏症是家族性乳糜微粒血症综合征（FCS）的一种罕见遗传病因，患者易发生严重高甘油三酯血症和急性胰腺炎。指导妊娠期管理的证据有限。我们报告一例ApoC-II缺乏症（ApoC-II Wakayama突变）女性患者，其甘油三酯（TG）呈双相升高。TG在妊娠中期显著升高，经强化饮食限制后改善，妊娠晚期再次升至1400 mg/dL（15.8 mmol/L）。由于患者始终无症状且TG对饮食治疗有反应，未启动药物治疗和血浆置换。于36周引产，经阴道分娩顺利，产后TG迅速下降。本病例强调了FCS中按妊娠分期进行监测以及个体化重新评估饮食、药物、血浆置换和分娩策略的重要性。",
+      "abstract_en": "Apolipoprotein C-II (ApoC-II) deficiency is a rare genetic cause of familial chylomicronemia syndrome (FCS) that predisposes affected individuals to severe hypertriglyceridemia and acute pancreatitis. Evidence guiding management during pregnancy is limited. We report a woman with ApoC-II deficiency (ApoC-II Wakayama mutation) who showed a biphasic triglyceride (TG) elevation. TG increased markedly in the second trimester, improved with intensified dietary restriction, and rose again to 1400 mg/dL (15.8 mmol/L) in the third trimester. Because she remained asymptomatic and TG had responded to dietary therapy, medical therapy and plasma exchange were not initiated. Labour was induced at 36 weeks, resulting in uncomplicated vaginal delivery and rapid postpartum TG reduction. This case highlights trimester-specific monitoring and individualized reassessment of dietary, medical, plasma exchange, and delivery strategies in FCS.",
+      "authors": [
+        "Yukina Murai",
+        "Koutarou Doi",
+        "Chihiro Tose",
+        "Tetsuo Nakayama",
+        "Kayo Tomimori",
+        "Nozomi Yoshimoto",
+        "Satoshi Matsuzawa",
+        "Yuki Kodama",
+        "Shinji Katsuragi"
+      ],
+      "journal": "Obstetric Medicine",
+      "year": "2026",
+      "doi": "10.1177/1753495x261492750",
+      "pmid": null,
+      "url": "https://doi.org/10.1177/1753495x261492750",
+      "score": 3,
+      "source": "openalex",
+      "status": "published",
+      "summary_cn": "该病例报告描述了一名ApoC-II缺乏（Wakayama突变）孕妇出现双相性甘油三酯升高，孕中期显著升高后经强化饮食限制改善，孕晚期再次升至1400 mg/dL，因无症状且对饮食治疗有反应而未启动药物或血浆置换，36周引产后顺利阴道分娩且产后TG迅速下降。研究强调FCS妊娠期需按孕期分段监测并个体化评估饮食、药物、血浆置换及分娩策略。"
     },
     {
       "id": "10.1111/joim.70170",
@@ -159,7 +142,7 @@
       "category": "胰腺炎",
       "title_cn": "GLP-1受体激动剂与严重不良事件：证据、不确定性与临床意义",
       "title_en": "GLP‐1 receptor agonists and serious adverse events: Evidence, uncertainty and clinical implications",
-      "abstract_cn": "胰高血糖素样肽-1（GLP-1）受体激动剂在减重、2型糖尿病血糖控制以及心血管和肾脏结局方面具有获益。其广泛使用引发了人们对罕见但可能严重的不良事件的担忧。本叙述性综述评估了与GLP-1受体激动剂相关的七种严重不良事件的证据：甲状腺癌、非动脉炎性前部缺血性视神经病变（NAION）、自杀行为和自伤、糖尿病视网膜病变并发症、急性胰腺炎、胆囊和胆道疾病以及肠梗阻。本文综合考量了来自机制研究、自发报告、随机试验和队列研究的证据。胆囊和胆道疾病拥有最一致的证据支持因果关系。糖尿病视网膜病变的恶化似乎最符合已有视网膜病变患者在血糖快速改善后的早期恶化。对于甲状腺癌、NAION、自杀行为和自伤、急性胰腺炎及肠梗阻，关于因果关系的证据仍不确定。罕见事件、试验中不完整的确诊以及观察性研究中的残余混杂因素限制了推断。由于这些事件较为罕见，即使在广泛人群中存在大幅相对风险增加，通常也对应着较小的绝对风险增加，但在高基线风险患者中可能具有临床意义。治疗决策应综合考虑安全性证据的强度与不确定性、个体基线风险、相对于现有替代方案的预期获益以及患者偏好。",
+      "abstract_cn": "胰高血糖素样肽-1（GLP-1）受体激动剂在减重、2型糖尿病血糖控制以及心血管和肾脏结局方面具有获益。其广泛使用引发了人们对罕见但可能严重的不良事件的担忧。本叙述性综述评估了与GLP-1受体激动剂相关的七种严重不良事件的证据：甲状腺癌、非动脉炎性前部缺血性视神经病变（NAION）、自杀行为和自伤、糖尿病视网膜病变并发症、急性胰腺炎、胆囊和胆道疾病以及肠梗阻。本文综合考量了来自机制研究、自发报告、随机试验和队列研究的证据。胆囊和胆道疾病具有最一致的证据支持因果关系。糖尿病视网膜病变的恶化似乎最符合已有视网膜病变患者在血糖快速改善后的早期恶化。对于甲状腺癌、NAION、自杀行为和自伤、急性胰腺炎及肠梗阻，关于因果关系的证据仍不确定。罕见事件、试验中不完全的确认以及观察性研究中的残余混杂因素限制了推断。由于这些事件较为罕见，即使相对风险显著增加，在广泛人群中通常也对应着较小的绝对风险增加，但在基线风险较高的患者中可能具有临床意义。治疗决策应综合考虑安全性证据的强度和不确定性、个体基线风险、相对于现有替代方案的预期获益以及患者偏好。",
       "abstract_en": "Glucagon-like peptide-1 (GLP-1) receptor agonists provide benefits in weight reduction, glycaemic control in Type 2 diabetes, and cardiovascular and renal outcomes. Their widespread use has given rise to concerns regarding rare but potentially serious adverse events. This narrative review appraises evidence regarding seven serious adverse events linked to GLP-1 receptor agonists: thyroid cancer, non-arteritic anterior ischaemic optic neuropathy (NAION), suicidal behaviours and self-harm, diabetic retinopathy complications, acute pancreatitis, gallbladder and biliary disease and intestinal obstruction. Evidence from mechanistic studies, spontaneous reports, randomized trials and cohort studies is considered. Gallbladder and biliary disease has the most consistent evidence supporting a causal association. Worsening of diabetic retinopathy appears most consistent with early worsening after rapid glycaemic improvement in patients with pre-existing retinopathy. For thyroid cancer, NAION, suicidal behaviour and self-harm, acute pancreatitis and intestinal obstruction, evidence regarding causality remains uncertain. Rare events, incomplete ascertainment in trials and residual confounding in observational studies limit inference. Because these events are rare, even substantial relative risk increases generally correspond to small absolute risk increases in broad populations but may become relevant in patients with high baseline risk. Treatment decisions should consider the strength and uncertainty of safety evidence, individual baseline risk, expected benefits relative to available alternatives and patient preferences.",
       "authors": [
         "Peter Ueda"
@@ -172,7 +155,7 @@
       "score": 3,
       "source": "openalex",
       "status": "published",
-      "summary_cn": "该叙述性综述评估了GLP-1受体激动剂与七种严重不良事件（包括急性胰腺炎、胆囊及胆道疾病等）的关联证据，认为胆囊及胆道疾病的因果关联证据最一致，而急性胰腺炎等事件的因果证据仍不确定。由于这些事件罕见，即使相对风险显著增加，在广泛人群中绝对风险增幅通常较小，但在高基线风险患者中可能具有临床意义。"
+      "summary_cn": "该叙述性综述评估了GLP-1受体激动剂与七种严重不良事件（包括急性胰腺炎、胆囊及胆道疾病等）的关联证据，认为胆囊及胆道疾病的因果关联证据最为一致，而急性胰腺炎等事件的因果性仍不确定。由于这些事件罕见，即使相对风险显著增加，在广泛人群中绝对风险增幅通常较小，但在高基线风险患者中可能具有临床意义。"
     },
     {
       "id": "10.3389/fonc.2026.1943827",
@@ -180,7 +163,7 @@
       "category": "消化内镜",
       "title_cn": "超声内镜引导与外科胃空肠吻合术治疗恶性胃出口梗阻的疗效：系统评价与荟萃分析",
       "title_en": "Efficacy of endoscopic ultrasound-guided versus surgical gastrojejunostomy for malignant gastric outlet obstruction: a systematic review and meta-analysis",
-      "abstract_cn": "目的 系统比较超声内镜引导下胃空肠吻合术（EUS-GJ）与外科胃空肠吻合术（SGJ）在恶性胃出口梗阻（MGOO）姑息治疗中的关键结局。方法 按照PRISMA声明进行系统评价和荟萃分析。全面检索PubMed、Embase、Web of Science和Cochrane Library等数据库，检索时间从建库至2025年12月，纳入比较EUS-GJ与SGJ治疗MGOO的研究。采用随机效应模型进行荟萃分析，并进行亚组分析和敏感性分析。结果 共纳入8项研究，涉及760例患者。汇总分析显示，EUS-GJ与SGJ在技术成功率（RR = 0.98，P = 0.08）、临床成功率（RR = 1.08，P = 0.07）、梗阻复发率（RR = 0.48，P = 0.05）或再干预率（RR = 1.48，P = 0.61）方面均无显著差异。然而，EUS-GJ组显示出显著优势，包括住院时间更短（MD= -3.57天，P<0.001）、首次经口进食时间更快（MD= -2.88天，P<0.001）、恢复化疗时间更短（MD= -16.05天，P<0.001）以及总体不良事件发生率更低（RR = 0.44，P = 0.008）。结论 对于MGOO的姑息治疗，EUS-GJ与SGJ相比在主要疗效终点方面无统计学显著差异，但可能与更快的恢复和更好的安全性相关。系统评价注册 https://www.crd.york.ac.uk/PROSPERO/ ，注册号CRD420261308316。",
+      "abstract_cn": "目的 系统比较超声内镜引导下胃空肠吻合术（EUS-GJ）与外科胃空肠吻合术（SGJ）在恶性胃出口梗阻（MGOO）姑息治疗中的关键结局。方法 按照PRISMA声明进行系统评价和荟萃分析。全面检索PubMed、Embase、Web of Science和Cochrane Library等数据库，检索时间从建库至2025年12月，纳入比较EUS-GJ与SGJ治疗MGOO的研究。采用随机效应模型进行荟萃分析，并进行亚组分析和敏感性分析。结果 共纳入8项研究，涉及760例患者。汇总分析显示，EUS-GJ与SGJ在技术成功率（RR = 0.98，P = 0.08）、临床成功率（RR = 1.08，P = 0.07）、梗阻复发率（RR = 0.48，P = 0.05）或再干预率（RR = 1.48，P = 0.61）方面均无显著差异。然而，EUS-GJ组显示出显著优势，包括住院时间更短（MD= -3.57天，P<0.001）、首次经口进食时间更快（MD= -2.88天，P<0.001）、恢复化疗时间更短（MD= -16.05天，P<0.001）以及总体不良事件发生率更低（RR = 0.44，P = 0.008）。结论 对于MGOO的姑息治疗，EUS-GJ与SGJ相比在主要疗效终点方面无统计学显著差异，但可能与前者的恢复更快和安全性更好相关。系统评价注册 https://www.crd.york.ac.uk/PROSPERO/ ，注册号CRD420261308316。",
       "abstract_en": "Objective To systematically compare the key outcomes of endoscopic ultrasound-guided gastrojejunostomy (EUS-GJ) versus surgical gastrojejunostomy (SGJ) for the palliative treatment of malignant gastric outlet obstruction (MGOO). Methods A systematic review and meta-analysis was conducted in accordance with the PRISMA statement. Databases including PubMed, Embase, Web of Science and Cochrane Library were comprehensively searched from inception to December 2025 for comparative studies of EUS-GJ and SGJ in treating MGOO. Meta-analysis was performed using a random-effects model, with subgroup and sensitivity analyses. Results Eight studies involving 760 patients were included. Pooled analysis showed no significant differences between EUS-GJ and SGJ in technical success (RR = 0.98, P = 0.08), clinical success (RR = 1.08, P = 0.07), obstruction recurrence (RR = 0.48, P = 0.05), or re-intervention rates (RR = 1.48, P = 0.61). However, the EUS-GJ group demonstrated significant advantages, including a shorter length of hospital stay (MD= -3.57 days, P<0.001), a quicker time to first oral intake (MD= -2.88 days, P<0.001), a shorter time to resume chemotherapy (MD= -16.05 days, P<0.001), and a lower overall adverse events rate (RR = 0.44, P = 0.008). Conclusion For the palliative management of MGOO, EUS-GJ showed no statistically significant difference in primary efficacy endpoints compared with SGJ, but it might be associated with faster recovery and improved safety. Systematic review registration https://www.crd.york.ac.uk/PROSPERO/ , identifier CRD420261308316.",
       "authors": [
         "Furui Zhong",
@@ -196,7 +179,7 @@
       "score": 3,
       "source": "openalex",
       "status": "published",
-      "summary_cn": "该荟萃分析纳入8项研究共760例患者，发现EUS引导下胃空肠吻合术（EUS-GJ）与外科胃空肠吻合术（SGJ）在技术成功、临床成功、梗阻复发及再干预率方面无显著差异，但EUS-GJ组住院时间更短、首次经口进食更快、恢复化疗更早且总体不良事件率更低。"
+      "summary_cn": "该荟萃分析比较了EUS引导下胃空肠吻合术与外科胃空肠吻合术治疗恶性胃出口梗阻的疗效，发现两组在技术成功、临床成功、梗阻复发和再干预率方面无显著差异，但EUS-GJ组住院时间更短、首次经口进食和恢复化疗更快、总体不良事件率更低。"
     },
     {
       "id": "patent-WO2026151746A1",
