@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-17",
+  "generated_at": "2026-11-17T00:13:01+08:00",
+  "stats": {
+    "total_papers": 3,
+    "total_patents": 2,
+    "sources": [
+      "openalex"
+    ]
+  },
+  "items": [
+    {
+      "id": "10.53347/rid-248272",
+      "type": "paper",
+      "category": "胰腺炎",
+      "title_cn": "坏死性胰腺炎",
+      "title_en": "Necrotizing pancreatitis",
+      "abstract_cn": "",
+      "abstract_en": "",
+      "authors": [
+        "Zayna Shaikh"
+      ],
+      "journal": "Radiopaedia.org",
+      "year": "2026",
+      "doi": "10.53347/rid-248272",
+      "pmid": null,
+      "url": "https://doi.org/10.53347/rid-248272",
+      "score": 5,
+      "source": "openalex",
+      "status": "published",
+      "summary_cn": "该论文标题为“Necrotizing pancreatitis”（坏死性胰腺炎），但未提供摘要内容，无法基于摘要总结核心发现。"
+    },
+    {
+      "id": "10.1186/s12911-026-03970-8",
+      "type": "paper",
+      "category": "胰腺炎",
+      "title_cn": "基于规则的分类：急性胰腺炎早期腹部CT后潜在可干预的影像学报告发现及后续诊疗模式——一项关联MIMIC-IV队列研究",
+      "title_en": "Rule-based classification of potentially actionable radiology report findings and downstream care patterns after early abdominal CT in acute pancreatitis: a linked MIMIC-IV cohort study",
+      "abstract_cn": "摘要 背景 急性胰腺炎患者常早期接受腹部计算机断层扫描（CT），但报告中可能具有可操作性的发现的出现频率及其与后续诊疗的关联尚不明确。我们估算了基于规则的报告分类器所产生阳性结果的比例，并考察了在入院后24小时内仍存活、仍在住院且未接受特定重大器官支持治疗的住院患者中，早期CT与后续管理及资源使用之间的关联。方法 本回顾性队列研究将MIMIC-IV结构化记录与MIMIC-IV-Note放射学报告相链接。符合条件的入院病例在24小时内仍存活、仍在住院，且未接受有创机械通气、血管升压药或肾脏替代治疗。一个预先设定的短语词典对每例入院的首份早期CT报告进行分类，未经独立临床医生验证；无法确定的报告保持为不确定。稳定化逆概率治疗权重在第1和第99百分位数处进行缩尾处理。双重稳健结局模型采用患者聚类标准误。结果 队列包括来自3,216例患者的4,949例次入院；1,857例次至少接受了一次早期CT。分类器仅应用于首份早期CT报告。在1,599份可确定的首份早期CT报告中，193份被规则判定为阳性，存在可能具有可操作性的发现（12.1%，95%置信区间10.4%至13.8%）；258份为不确定。该百分比为分类器输出结果，并非经临床验证的诊断阳性率指标。早期CT与24至72小时内管理改变无明确关联（校正风险比1.09，95%置信区间0.92至1.31；P = 0.315），与标志点后住院时长亦无明确关联（均值比1.07，95%置信区间0.99至1.15；P = 0.069）。早期CT与后续腹部CT及实验室检查使用量轻度增加相关。结论 基于规则的分类器在12.1%的可确定首份早期CT报告中识别出可能具有可操作性的发现。早期CT与更高的诊断强度相关，但与记录的管理改变或住院时长无明确关联。在对分类器输出进行临床解读之前，需要独立的临床医生验证。",
+      "abstract_en": "Abstract Background Early abdominal computed tomography (CT) is often obtained in acute pancreatitis, although the frequency of potentially actionable report findings and their association with later care are uncertain. We estimated the positive proportion produced by a rule-based report classifier and examined associations between early CT, subsequent management, and resource use among admissions remaining alive, hospitalized, and free of selected major organ support through 24 h. Methods This retrospective cohort linked MIMIC-IV structured records with MIMIC-IV-Note radiology reports. Eligible admissions remained alive, hospitalized, and free of invasive mechanical ventilation, vasopressors, or renal replacement therapy through 24 h. A prespecified phrase dictionary classified the first early-CT report from each admission without independent clinician validation; unresolved reports remained indeterminate. Stabilized inverse-probability-of-treatment weights were winsorized at the 1st and 99th percentiles. Doubly robust outcome models used patient-clustered standard errors. Results The cohort included 4,949 admissions from 3,216 patients; 1,857 received at least one early CT. The classifier was applied only to the first early-CT report. Among 1,599 determinate first early-CT reports, 193 were rule-positive for a potentially actionable finding (12.1%, 95% confidence interval 10.4% to 13.8%); 258 were indeterminate. This percentage is a classifier output, not a clinically validated diagnostic-yield measure. Early CT was not clearly associated with management change within 24 to 72 h (adjusted risk ratio 1.09, 95% confidence interval 0.92 to 1.31; P = 0.315) or post-landmark length of stay (ratio of means 1.07, 95% confidence interval 0.99 to 1.15; P = 0.069). Early CT was associated with subsequent abdominal CT and modestly higher laboratory use. Conclusions The rule-based classifier identified a potentially actionable finding in 12.1% of determinate first early-CT reports. Early CT was associated with greater diagnostic intensity, without a clear association with recorded management change or length of stay. Independent clinician validation is needed before clinical interpretation of the classifier output.",
+      "authors": [
+        "Weibin Huang",
+        "Jiaxiang Bian",
+        "Xiaoyang Wang",
+        "Youli Chen",
+        "Chuling Liu",
+        "Shuling Wang",
+        "Cunrong Chen"
+      ],
+      "journal": "BMC Medical Informatics and Decision Making",
+      "year": "2026",
+      "doi": "10.1186/s12911-026-03970-8",
+      "pmid": null,
+      "url": "https://doi.org/10.1186/s12911-026-03970-8",
+      "score": 3,
+      "source": "openalex",
+      "status": "published",
+      "summary_cn": "该研究利用规则化报告分类器分析急性胰腺炎早期腹部CT报告，发现12.1%的确定性报告存在潜在可干预发现；早期CT与后续诊断强度增加（更多腹部CT和实验室检查）相关，但与24-72小时内管理改变或住院时长无明确关联。"
+    },
+    {
+      "id": "10.22141/2224-0721.22.7.2026.1776",
+      "type": "paper",
+      "category": "胰腺炎",
+      "title_cn": "双中心队列研究：心血管-肾脏-代谢综合征患者胆石症并发远端胆道良性梗阻",
+      "title_en": "Two-centre cohort study of the distal biliary system benign obstructions complicated by cholelithiasis in patients with cardiovascular-kidney-metabolic syndrome",
+      "abstract_cn": "背景。肥胖、2型糖尿病和血脂异常作为心血管-肾脏-代谢（CKM）综合征的标志性特征，会改变肝脏胆固醇代谢，增加胆汁中胆固醇饱和度，导致胆结石形成，进而引起胆道系统梗阻。本研究旨在分析预防良性梗阻中胆道树损伤的可能方法，以改善CKM综合征患者术后生活质量。材料与方法。这项双中心研究纳入3268例CKM综合征合并胆石症患者，其中复杂性胆石症912例（28%）。CKM综合征通过多学科基线指标组合进行诊断。胆总管结石通过超声、磁共振胰胆管成像或术中胆管造影诊断。研究按照《良好临床实践》原则和欧洲委员会《人权与生物医学公约》进行。结果。队列平均相对脂肪量为高值（30.41 ± 1.09%），常见合并症包括缺血性心脏病、高血压、2型糖尿病和外周血管疾病，提示代谢和血管因素与胆结石形成相关。64.9%的患者检出胆总管结石。经乳头介入术后并发症包括急性胰腺炎（12.8%）、出血（1.4%）和穿孔（0.6%）。64.9%的患者接受了延期腹腔镜手术，因破坏性改变导致的中转开腹率为8.4%。代谢标志物差异显著，尤其是胆红素组分。结论。肥胖和代谢综合征是胆石症患者发生机械性黄疸的重要易感因素和有价值的合并症，占大多数病例。急诊手术治疗仍是常态——碎石术联合胆道镜检查能够预防肝胆系统损伤，并缩短良性胆道梗阻患者的住院时间。对CKM综合征及其他代谢状况进行适当且及时的诊断，可显著降低治疗失败的风险并改善患者随访。",
+      "abstract_en": "Background. Obesity, type 2 diabetes mellitus, and dyslipidemia as the hallmarks of cardiovascular-kidney-metabolic (CKM) syndrome alter hepatic cholesterol metabolism increasing cholesterol saturation in the bile and causing gallstone formation leading to biliary system obstructions. The purpose of the study is to analyse possible methodologies to prevent damage to the biliary tree in benign obstruction to improve the quality of life in the postoperative period in patients with CKM syndrome. Materials and methods. The two-centre study involved 3268 patients with CKM syndrome and cholelithiasis, including complicated cholelithiasis (912 patients, or 28 %). CKM syndrome was diagnosed via a multidisciplinary battery of baseline metrics. Choledocholithiasis was diagnosed using ultrasound, magnetic resonance cholangiopancreatography or intraoperative cholangiography. The study was conducted in accordance with the principles of the Good Clinical Practice, the Council of Europe Convention on Human Rights and Biomedicine. Results. Mean relative fat mass in the cohort was high (30.41 ± 1.09 %), with common comorbidities including ischemic heart disease, hypertension, type 2 diabetes, and peripheral vascular disease, indicating metabolic and vascular links to gallstone formation. Choledocholithiasis was detected in 64.9 % of patients. Post-transpapillary intervention complications included acute pancreatitis (12.8 %), bleeding (1.4 %), and perforation (0.6 %). Delayed laparoscopic surgery was performed in 64.9 %, with an 8.4 % conversion rate due to destructive changes. Metabolic markers varied significantly, especially bilirubin fractions. Conclusions. Obesity and metabolic syndrome are the important predisposing factor and valuable comorbidity in patients with cholelithiasis leading to mechanical jaundice, which accounts for majority of cases. Surgical treatment in an urgent manner remains constant — the combination of lithotripsy accompanied by choledochoscopy makes it possible to prevent damage to the hepatobiliary system and reduce length of stay with benign obstruction of the biliary tract. Proper and timely diagnosis of CKM syndrome and other metabolic conditions may significantly alleviate risk of unsuccessful treatment results and improve patients’ follow-up.",
+      "authors": [
+        "O. V. Ivanko",
+        "M. M. Stets",
+        "V.V. Petrynych",
+        "О. Zhukovskyi",
+        "O. B. Rusak",
+        "Ruslan I. Sydorchuk"
+      ],
+      "journal": "INTERNATIONAL JOURNAL OF ENDOCRINOLOGY (Ukraine)",
+      "year": "2026",
+      "doi": "10.22141/2224-0721.22.7.2026.1776",
+      "pmid": null,
+      "url": "https://doi.org/10.22141/2224-0721.22.7.2026.1776",
+      "score": 3,
+      "source": "openalex",
+      "status": "published",
+      "summary_cn": "在3268例CKM综合征合并胆石症患者中，胆总管结石检出率为64.9%，经乳头干预后并发症包括急性胰腺炎（12.8%）、出血（1.4%）和穿孔（0.6%）；研究提示碎石联合胆道镜可预防肝胆系统损伤并缩短良性胆道梗阻患者的住院时间。"
+    },
+    {
+      "id": "patent-WO2026151746A1",
+      "type": "patent",
+      "category": "消化道出血",
+      "title_cn": "用于超快生物粘附和黏膜下注射的水凝胶",
+      "title_en": "Hydrogels for ultrafast bio-adhesion and submucosal injection",
+      "abstract_en": "Bio-adhesive hydrogels and lifting gels comprising sodium alginate and their use for preventing or controlling a gastrointestinal bleed or hemorrhage or sealing a perforation in tissue of a GI tract and separating diseased tissue from normal tissue in the GI tract, respectively, are disclosed. The hydrogel forms a calcium alginate barrier at the bleeding site, addressing the limitations of current endoscopic treatments for gastrointestinal bleeding which have limited efficacy, high recurrence of bleeding, and obscuration of the endoscopy view.",
+      "abstract_cn": "本发明公开了包含海藻酸钠的生物粘附水凝胶和抬举凝胶，分别用于预防或控制胃肠道出血或止血、封闭胃肠道组织穿孔，以及将病变组织与正常组织分离。该水凝胶在出血部位形成海藻酸钙屏障，解决了当前胃肠道出血内镜治疗疗效有限、再出血率高、以及内镜视野被血液遮挡的问题。同时可作为黏膜下注射抬举凝胶用于ESD术中组织分离。",
+      "summary_cn": "该专利由约翰斯·霍普金斯大学研发，提出一种基于海藻酸钠和CaCl₂的生物粘附水凝胶，在内镜下喷洒至出血部位后迅速形成海藻酸钙屏障实现止血。其核心创新在于兼具止血和黏膜下抬举双重功能：既能控制急性出血和迟发性出血，又能在ESD术中作为抬举凝胶分离病变组织与正常组织。优势在于减少多种内镜配件的使用需求，缩短操作时间，适用于难以精确定位的弥漫性出血和肿瘤出血场景。",
+      "patent_number": "WO2026151746A1",
+      "filing_date": "2026-01-07",
+      "assignee": "JOHNS HOPKINS UNIVERSITY（美国约翰斯·霍普金斯大学）",
+      "url": "",
+      "score": 3,
+      "source": "WIPO PCT国际专利",
+      "year": "2026",
+      "journal": "",
+      "authors": [],
+      "doi": "",
+      "status": "published"
+    },
+    {
+      "id": "patent-WO2026128759A1",
+      "type": "patent",
+      "category": "消化道出血",
+      "title_cn": "用于机器人辅助手术的内镜多装夹施夹器",
+      "title_en": "Endoscopic clip applier for robotic-assisted surgery",
+      "abstract_en": "An endoscopic multi-load clip applier device includes a housing structured to include a compartment operable to store and distribute one or more clips; a flexible end coupled to the housing; and at least two grip components coupled to the housing and operable to compress and release upon control by robotic forceps of a robotic-assisted surgery system. The device enables multiple clip storage and automatic reloading, enhancing surgical efficiency and surgeon control in robotic-assisted surgery. The instrument can be introduced into an operative field via a bedside assistant port, and the surgeon can pick up the device using robotic forceps to place clips at the surgical site.",
+      "abstract_cn": "一���内镜多装夹施夹器装置，包括可存储和分发多个钛夹的壳体、连接于壳体的柔性端部、以及至少两个夹持组件。夹持组件可由机器人辅助手术系统的机械钳控制压缩和释放，使术者可在术中多次放置钛夹。该装置支持多夹存储和自动重装，提升机器人辅助手术中的效率和术者操控性。器械可通过床旁助手端口引入手术区域，术者使用机械钳夹取器械端部并在手术部位放置钛夹。",
+      "summary_cn": "该专利由加州大学研发，针对机器人辅助手术中血管结扎的痛点，设计了一种可存储多个钛夹并自动重装的内镜施夹器。核心创新在于将柔性端部设计与机器人机械钳操控相结合，术者可在不更换器械的情况下连续放置多个止血夹，大幅提升手术效率。该装置为一次性使用，成本低于现有技术，适用于机器人辅助的消化道手术中血管处理。",
+      "patent_number": "WO2026128759A1",
+      "filing_date": "2025-12-11",
+      "assignee": "UNIVERSITY OF CALIFORNIA（美国加州大学）",
+      "url": "",
+      "score": 3,
+      "source": "WIPO PCT国际专利",
+      "year": "2026",
+      "journal": "",
+      "authors": [],
+      "doi": "",
+      "status": "published"
+    }
+  ]
+}
